@@ -1,0 +1,5 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="/home/saint/Documentos/HexDataMovies/Client/bin/Debug/net5.0/wwwroot/" />
+  <ContentRoot BasePath="/" Path="/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/scopedcss/bundle/" />
+  <ContentRoot BasePath="/" Path="/home/saint/Documentos/HexDataMovies/Client/wwwroot/" />
+</StaticWebAssets>

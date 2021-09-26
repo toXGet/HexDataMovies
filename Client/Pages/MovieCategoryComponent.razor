@@ -1,0 +1,34 @@
+<div class="jumbotron">
+    
+    @foreach (var movie in Movies)
+    {
+        <div class="list-group mb-3">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <img src="@movie.Poster" class="img-thumbnail" alt="" style="width: 18rem;">
+                </div>
+                <div class="col-md-8">
+                    <h5 class="">Título: <small class="text-muted">@movie.Title</small></h5>
+                    <blockquote class="blockquote">
+                        Sinopsis: <small class="text-muted">@movie.Sinopsis</small>
+                        <br>
+                        Género: <small class="text-muted">@movie.Genero</small>
+                        <br>
+                        País: <small class="text-muted">@movie.Country</small>
+                        <br>
+                        Idioma: <small class="text-muted">@movie.Language</small>
+                        <br>
+                        Duración: <small class="text-muted">@movie.RunningTime.ToString(@"hh\:mm")</small>
+                        <br>
+                        Calificación: <small class="text-muted">@movie.Score.ToString()</small>
+                        <br>
+                        Fecha de Estreno: <small class="text-muted">@movie.Premier.ToString("dd/MM/yyyy")</small>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@code{
+    [Parameter] public List<Movie> Movies {get;set;}
+}

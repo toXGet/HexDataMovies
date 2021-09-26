@@ -1,0 +1,12 @@
+/home/saint/Documentos/HexDataMovies/Shared/bin/Debug/net5.0/HexDataMovies.Shared.deps.json
+/home/saint/Documentos/HexDataMovies/Shared/bin/Debug/net5.0/HexDataMovies.Shared.dll
+/home/saint/Documentos/HexDataMovies/Shared/bin/Debug/net5.0/ref/HexDataMovies.Shared.dll
+/home/saint/Documentos/HexDataMovies/Shared/bin/Debug/net5.0/HexDataMovies.Shared.pdb
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.csprojAssemblyReference.cache
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.AssemblyInfoInputs.cache
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.AssemblyInfo.cs
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.csproj.CoreCompileInputs.cache
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.dll
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/ref/HexDataMovies.Shared.dll
+/home/saint/Documentos/HexDataMovies/Shared/obj/Debug/net5.0/HexDataMovies.Shared.pdb

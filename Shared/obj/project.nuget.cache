@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2kcfQN6WN++V1B+eNq9Mwlnvg7o1tPglgXXRdCrvR2H+ie1errai68hr4VhMnTE6Xs6XVriOuh4OOZ7y0znckw==",
+  "success": true,
+  "projectFilePath": "/home/saint/Documentos/HexDataMovies/Shared/HexDataMovies.Shared.csproj",
+  "expectedPackageFiles": [
+    "/home/saint/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
