@@ -96,7 +96,14 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/MovieHome.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/anterior")]
     public partial class MovieHome : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,7 +112,7 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 7 "/home/saint/Documentos/HexDataMovies/Client/Pages/MovieHome.razor"
+#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/MovieHome.razor"
       
     private List<Movie> Movies;
     protected override void OnInitialized(){

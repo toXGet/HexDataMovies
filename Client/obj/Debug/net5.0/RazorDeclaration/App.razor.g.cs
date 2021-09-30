@@ -96,6 +96,13 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "/home/saint/Documentos/HexDataMovies/Client/App.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
     public partial class App : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

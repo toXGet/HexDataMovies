@@ -1,8 +1,9 @@
-@page "/"
+@page "/anterior"
+@using HexDataMovies.Client.Pages.Components
 
 @inject IServiceMovie movie
 <div class="jumbotron">
-    <MoviesComponent Movies = "Movies"></MoviesComponent>
+    <CardMovieComponent Movies = "Movies"></CardMovieComponent>
 </div>
 @code{
     private List<Movie> Movies;
