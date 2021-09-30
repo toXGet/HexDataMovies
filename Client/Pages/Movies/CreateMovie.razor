@@ -1,0 +1,16 @@
+@page "/movies/create"
+@inject NavigationManager navigationManager
+
+@*<div class="jumbotron">
+    <div class="form-group mb-3">
+        <button class="btn btn-info" @onclick="Create">Crear Película</button>
+    </div>
+</div>*@ @* Eso es lo que estaba en el documento de drive, en el pdf es así:*@
+<h6>Crear Película</h6>
+<button @onclick="Create">Crear Película</button>
+@code{
+    void Create(){
+        Console.WriteLine(navigationManager.Uri);
+        navigationManager.NavigateTo("movie");
+    }
+}

@@ -1,0 +1,11 @@
+@page "/filmgenres/{FilmGenreId:int}"
+@page "/filmgenres/{FilmGenreId:int}/{Name}"
+
+<h6>Ver información de una Categoría en específico</h6>
+@code{
+    [Parameter] public int FilmGenreId {get;set;}
+    [Parameter] public string Name {get;set;}
+    protected override void OnInitialized(){
+        Console.WriteLine($"El id de la categoría es {FilmGenreId} y el nombre {Name}");
+    }
+}

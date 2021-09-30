@@ -1,0 +1,14 @@
+@page "/"
+@using HexDataMovies.Client.Pages.Components
+
+@inject IServiceMovie movie
+
+<MovieComponent Movies = "Movies"></MovieComponent>
+
+@code{
+    private List<Movie> Movies;
+    protected override void OnInitialized()
+    {
+        Movies = movie.GetMovies();
+    }
+}

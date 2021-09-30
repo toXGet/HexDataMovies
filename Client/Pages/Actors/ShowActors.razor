@@ -1,0 +1,11 @@
+@page "/actors/{ActorId:int}"
+@page "/actors/{ActorId:int}/{Name}"
+
+<h6>Ver información de un Actor en específico</h6>
+@code{
+    [Parameter] public int ActorId {get;set;}
+    [Parameter] public string Name {get;set;}
+    protected override void OnInitialized(){
+        Console.WriteLine($"El id del actor es {ActorId} y el nombre {Name}");
+    }
+}
