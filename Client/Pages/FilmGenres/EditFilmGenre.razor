@@ -1,5 +1,22 @@
-@page "/filmgenres/edit/{FilmGenreId:int}"
-<h6>Editar Categoría</h6>
+@page "/filmgenres/edit/{Id:int}"
+@using HexDataMovies.Client.Pages.Components
+
+<div class="jumbotron">
+    <FormFilmGenreComponent OnValidSubmit="Edit" FilmGenre="FilmGenre"></FormFilmGenreComponent>
+</div>
+
 @code{
-    [Parameter] public int FilmGenreId {get;set;}
+    private FilmGenre FilmGenre;
+    [Parameter]public int Id {get;set;}
+    protected override void OnInitialized(){
+        FilmGenre = new FilmGenre(){
+            Id = Id,
+            Name = "Comedia"
+        };
+    }
+    private void Edit()
+    {
+        Console.WriteLine($"Id {FilmGenre.Id}");
+        Console.WriteLine($"Nombre {FilmGenre.Name}");
+    }
 }

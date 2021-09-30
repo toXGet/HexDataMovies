@@ -96,6 +96,14 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/create")]
     public partial class CreateActor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -103,6 +111,18 @@ using HexDataMovies.Client.Services;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
+      
+    private Actor Actor = new Actor();
+    private void Create()
+    {
+        Console.WriteLine($"Nombre del Actor {Actor.Name}");
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

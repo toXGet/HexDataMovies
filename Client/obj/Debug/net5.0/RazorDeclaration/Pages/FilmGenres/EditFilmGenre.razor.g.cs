@@ -96,7 +96,14 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/filmgenres/edit/{FilmGenreId:int}")]
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/EditFilmGenre.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/filmgenres/edit/{Id:int}")]
     public partial class EditFilmGenre : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,9 +112,21 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 3 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/EditFilmGenre.razor"
+#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/EditFilmGenre.razor"
       
-    [Parameter] public int FilmGenreId {get;set;}
+    private FilmGenre FilmGenre;
+    [Parameter]public int Id {get;set;}
+    protected override void OnInitialized(){
+        FilmGenre = new FilmGenre(){
+            Id = Id,
+            Name = "Comedia"
+        };
+    }
+    private void Edit()
+    {
+        Console.WriteLine($"Id {FilmGenre.Id}");
+        Console.WriteLine($"Nombre {FilmGenre.Name}");
+    }
 
 #line default
 #line hidden

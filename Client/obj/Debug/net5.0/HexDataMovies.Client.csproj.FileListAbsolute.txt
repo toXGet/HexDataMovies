@@ -645,7 +645,6 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/FilmGenres/CreateFilmGenre.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/FilmGenres/EditFilmGenre.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/FilmGenres/ShowFilmGenre.razor.g.cs
-/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/FilmGenres/ShowFilmGenres.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Movies/CreateMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Movies/EditMovie.razor.g.cs
@@ -661,8 +660,15 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/FilmGenres/CreateFilmGenre.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/FilmGenres/EditFilmGenre.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/FilmGenres/ShowFilmGenre.razor.g.cs
-/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/FilmGenres/ShowFilmGenres.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/CreateMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/EditMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/ShowMovie.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/FormFilmGenreComponent.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FormFilmGenreComponent.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/FiltroMovies.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/FormActorComponent.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/ImageComponent.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FiltroMovies.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FormActorComponent.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/ImageComponent.razor.g.cs

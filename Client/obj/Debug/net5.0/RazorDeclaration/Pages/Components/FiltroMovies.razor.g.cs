@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.Actors
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -97,14 +97,14 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FiltroMovies.razor"
 using HexDataMovies.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/edit/{ActorId:int}")]
-    public partial class EditActor : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/movies/search")]
+    public partial class FiltroMovies : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,26 +112,58 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+#line 44 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FiltroMovies.razor"
       
-    [Parameter] public int ActorId {get;set;}
-    Actor Actor = new Actor();
-    protected override void OnInitialized()
-    {
-        Actor = new Actor()
-        {
-            Id = ActorId,
-            Name = "Orson Welles",
-            BirthDate = DateTime.Today
-        };
+    private List<Movie> Movies;
+    private List<FilmGenre> filmgenres = new List<FilmGenre>();    
+    string movie_name = "";
+    string categorySelected = "";
+    private bool futurosestrenos = false;
+    private bool encartelera = false;
+    private bool mejorcalificadas = false;
+
+    protected override void OnInitialized(){
+        Movies = movie.GetMovies();
     }
-    private void Edit(){
-        Console.WriteLine("Editando Actor");
+
+    private void loadMovies(){
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 58 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FiltroMovies.razor"
+                                                                                          
+        Movies = movie.GetMovies().Where(x=>x.Title.ToLower().Contains(movie_name.ToLower())).ToList();
+        Console.WriteLine($"Película: {movie_name}");
+        Console.WriteLine($"Categoría: {categorySelected}");
+        Console.WriteLine($"Checkbox de futuros estrenos: {futurosestrenos}");
+        Console.WriteLine($"Checkbox de en cartelera: {encartelera}");
+        Console.WriteLine($"Checkbox de mejor calificada: {mejorcalificadas}");
+    }
+
+    private void clearOptions()
+    {
+        Movies = movie.GetMovies();
+        movie_name = "";
+        categorySelected = "";
+        futurosestrenos = false;
+        encartelera = false;
+        mejorcalificadas = false;
+    }
+
+    private void MovieSearch(KeyboardEventArgs e){
+        if (e.Key == "Enter")
+        {
+            loadMovies();
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

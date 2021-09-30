@@ -1,0 +1,14 @@
+@page "/actors/create"
+@using HexDataMovies.Client.Pages.Components
+
+<div class="jumbotron">
+    <FormActorComponent OnValidSubmit="Create" Actor="Actor"></FormActorComponent>
+</div>
+
+@code{
+    private Actor Actor = new Actor();
+    private void Create()
+    {
+        Console.WriteLine($"Nombre del Actor {Actor.Name}");
+    }
+}

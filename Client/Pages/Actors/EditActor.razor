@@ -1,5 +1,21 @@
-@page "/actor/edit/{ActorId:int}"
-<h6>Editar Actor</h6>
+@page "/actors/edit/{ActorId:int}"
+@using HexDataMovies.Client.Pages.Components
+
+<FormActorComponent OnValidSubmit="Edit" Actor="Actor"></FormActorComponent>
+
 @code{
     [Parameter] public int ActorId {get;set;}
+    Actor Actor = new Actor();
+    protected override void OnInitialized()
+    {
+        Actor = new Actor()
+        {
+            Id = ActorId,
+            Name = "Orson Welles",
+            BirthDate = DateTime.Today
+        };
+    }
+    private void Edit(){
+        Console.WriteLine("Editando Actor");
+    }
 }

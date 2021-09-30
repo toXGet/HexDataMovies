@@ -96,8 +96,7 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/{ActorId:int}")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/{ActorId:int}/{Name}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actors")]
     public partial class ShowActors : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -105,18 +104,6 @@ using HexDataMovies.Client.Services;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 5 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/ShowActors.razor"
-      
-    [Parameter] public int ActorId {get;set;}
-    [Parameter] public string Name {get;set;}
-    protected override void OnInitialized(){
-        Console.WriteLine($"El id del actor es {ActorId} y el nombre {Name}");
-    }
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591

@@ -1,0 +1,83 @@
+@page "/movies/search"
+@using HexDataMovies.Client.Pages.Components
+@inject IServiceMovie movie
+<div class="jumbotron">
+    <div class="form-inline">
+        <div class="form-group mb-2">
+            @* <label for="movie_name" class="sr-only">Película</label> Así está en el paso a paso*@
+            <label for="movie_name" class="form-label">Película</label>
+            <input type="text" placeholder="Pelicula a Buscar" @bind-value = "movie_name" id="movie_name"
+            @bind-value:event="oninput" @onkeypress = "@((KeyboardEventArgs e)=>MovieSearch(e))"
+            class="form-control">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <select class="form-control" @bind="categorySelected">
+                <option value = "0">Seleccione una Categoría</option>
+                @foreach (var filmgenre in filmgenres)
+                {
+                    <option value="@filmgenre.Id">@filmgenre.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="checkbox" class="form-check-input" id="estrenos" @bind = "futurosestrenos">
+            <label class="form-check-label" for="estrenos">Próximos Estrenos</label>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="checkbox" class="form-check-input" id="cartelera" @bind = "encartelera">
+            <label class="form-check-label" for="cartelera">En Cartelera</label>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="checkbox" class="form-check-input" id="estrenos" @bind = "mejorcalificadas">
+            <label class="form-check-label" for="calificacion">Mejor Calificadas</label>
+        </div>
+
+    </div>
+    <div>
+        <button type="button" class="btn btn-info mb-2 mx-xm-3" @onclick = "loadMovies">Buscar</button>
+        <button type="button" class="btn btn-danger mb-2 mx-xm-3" @onclick = "clearOptions">Limpiar</button>
+    </div>
+</div>
+<CardMovieComponent Movie = "Movies"></CardMovieComponent>
+@code{
+    private List<Movie> Movies;
+    private List<FilmGenre> filmgenres = new List<FilmGenre>();    
+    string movie_name = "";
+    string categorySelected = "";
+    private bool futurosestrenos = false;
+    private bool encartelera = false;
+    private bool mejorcalificadas = false;
+
+    protected override void OnInitialized(){
+        Movies = movie.GetMovies();
+    }
+
+    private void loadMovies(){
+        @* Movies = movie.GetMovies().Where(x=>x.Title.ToLower().Contains(movie_name)); *@
+        Movies = movie.GetMovies().Where(x=>x.Title.ToLower().Contains(movie_name.ToLower())).ToList();
+        Console.WriteLine($"Película: {movie_name}");
+        Console.WriteLine($"Categoría: {categorySelected}");
+        Console.WriteLine($"Checkbox de futuros estrenos: {futurosestrenos}");
+        Console.WriteLine($"Checkbox de en cartelera: {encartelera}");
+        Console.WriteLine($"Checkbox de mejor calificada: {mejorcalificadas}");
+    }
+
+    private void clearOptions()
+    {
+        Movies = movie.GetMovies();
+        movie_name = "";
+        categorySelected = "";
+        futurosestrenos = false;
+        encartelera = false;
+        mejorcalificadas = false;
+    }
+
+    private void MovieSearch(KeyboardEventArgs e){
+        if (e.Key == "Enter")
+        {
+            loadMovies();
+        }
+    }
+}

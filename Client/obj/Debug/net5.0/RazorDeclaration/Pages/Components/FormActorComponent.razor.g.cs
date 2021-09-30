@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.Actors
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -96,15 +96,7 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
-using HexDataMovies.Client.Pages.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/edit/{ActorId:int}")]
-    public partial class EditActor : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class FormActorComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,21 +104,25 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
-      
-    [Parameter] public int ActorId {get;set;}
-    Actor Actor = new Actor();
+#line 56 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormActorComponent.razor"
+       
+    string imageURL;
+    [Parameter] public Actor Actor { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
     protected override void OnInitialized()
     {
-        Actor = new Actor()
+        if (!string.IsNullOrEmpty(Actor.Photo))
         {
-            Id = ActorId,
-            Name = "Orson Welles",
-            BirthDate = DateTime.Today
-        };
+            imageURL = Actor.Photo;
+            Actor.Photo = null;
+        }
     }
-    private void Edit(){
-        Console.WriteLine("Editando Actor");
+
+    private void ImageSelected(string imageB64)
+    {
+        Actor.Photo = imageB64;
+        imageURL = null;
     }
 
 #line default

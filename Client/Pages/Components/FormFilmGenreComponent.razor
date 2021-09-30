@@ -1,0 +1,21 @@
+<div class="jumbotron">
+    <EditForm Model="FilmGenre" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <div class="form-group">
+            <label class="form-label">
+                Categoría
+            </label>
+            <div class="mb-3">
+                <InputText class="form-control" placeholder="Nombre Categoría" @bind-Value="@FilmGenre.Name"></InputText>
+                <ValidationMessage For="@(()=>FilmGenre.Name)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </EditForm>
+</div>
+@code {
+    [Parameter] public FilmGenre FilmGenre { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+}

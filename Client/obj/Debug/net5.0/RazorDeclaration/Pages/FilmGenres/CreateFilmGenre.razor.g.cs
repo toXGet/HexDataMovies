@@ -96,6 +96,13 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/filmgenres/create")]
     public partial class CreateFilmGenre : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,7 +112,7 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
+#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
       
     private FilmGenre FilmGenre = new FilmGenre();
     private void Create()

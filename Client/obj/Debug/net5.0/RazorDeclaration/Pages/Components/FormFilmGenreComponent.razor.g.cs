@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.FilmGenres
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -96,14 +96,22 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/filmgenres")]
-    public partial class ShowFilmGenres : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class FormFilmGenreComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 18 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormFilmGenreComponent.razor"
+       
+    [Parameter] public FilmGenre FilmGenre { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591
