@@ -104,7 +104,7 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "/home/saint/Documentos/HexDataMovies/Client/Shared/NavMenu.razor"
+#line 59 "/home/saint/Documentos/HexDataMovies/Client/Shared/NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
