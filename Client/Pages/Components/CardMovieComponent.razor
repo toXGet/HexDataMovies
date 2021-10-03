@@ -11,7 +11,7 @@
                             <img src="@movie.Poster" class="card-img-top rounded-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title text-center">@movie.Title</h5>
-                                <p class="card-text text-right">@movie.Genero</p>
+                                <p class="card-text text-right">@movie.Trailer</p>
                                 <p class="card-text">@movie.Sinopsis</p>
                             </div>
                             <ul class="list-group list-group-flush">
@@ -19,7 +19,7 @@
                                 <li class="list-group-item">País de Origen: @movie.Country</li>
                                 <li class="list-group-item">Rating TMDB: @movie.Score.ToString()</li>
                                 <li class="list-group-item">Duración: @movie.RunningTime.ToString(@"hh\:mm")</li>
-                                <li class="list-group-item">Fecha de Estreno: @movie.Premier.ToString("dd/MM/yyyy")</li>
+                                @* <li class="list-group-item">Fecha de Estreno: @movie.Premier.ToString("dd/MM/yyyy")</li> *@
                             </ul>
                             </div>
                         </div>

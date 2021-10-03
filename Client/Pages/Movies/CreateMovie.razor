@@ -1,16 +1,43 @@
 @page "/movies/create"
+@using HexDataMovies.Client.Pages.Components
 @inject NavigationManager navigationManager
 
+<FormMovie Movie="Movie" OnValidSubmit="Create" NotSelectedFilmGenres="NotSelectedFilmGenres"></FormMovie>
 @*<div class="jumbotron">
     <div class="form-group mb-3">
         <button class="btn btn-info" @onclick="Create">Crear Película</button>
     </div>
 </div>*@ @* Eso es lo que estaba en el documento de drive, en el pdf es así:*@
-<h6>Crear Película</h6>
-<button @onclick="Create">Crear Película</button>
+@* <h6>Crear Película</h6>
+<button @onclick="Create">Crear Película</button> *@
+
 @code{
-    void Create(){
+    private Movie Movie = new Movie();
+    private List<FilmGenre> NotSelectedFilmGenres = new List<FilmGenre>();
+    
+    protected override void OnInitialized()
+    {
+        NotSelectedFilmGenres = new List<FilmGenre>()
+            {
+                new FilmGenre(){Id = 1, Name = "Comedia"},
+                new FilmGenre(){Id = 2, Name = "Ciencia Ficción"},
+                new FilmGenre(){Id = 3, Name = "Documentales"},
+                new FilmGenre(){Id = 4, Name = "Acción"},
+                new FilmGenre(){Id = 5, Name = "Drama"},
+                new FilmGenre(){Id = 6, Name = "Terror"},
+                new FilmGenre(){Id = 7, Name = "Animación"}
+            };
+    }
+    
+    void Create()
+    {
+        @* Con navigationManager se redirecciona al usuario a otras rutas dentro del sistema *@
         Console.WriteLine(navigationManager.Uri);
         navigationManager.NavigateTo("movie");
+        Console.WriteLine($"Película: {Movie.Title}");
+        Console.WriteLine($"Premier: {Movie.Premier}");
+        Console.WriteLine($"Está en Cartelera: {Movie.EnCartelera}");
+        Console.WriteLine($"Poster: {Movie.Poster}");
+        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
     }
 }

@@ -104,7 +104,7 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/ImageComponent.razor"
+#line 31 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/ImageComponent.razor"
       
     [Parameter] public string label {get;set;} = "Imagen";
     [Parameter] public string imageURL {get;set;}

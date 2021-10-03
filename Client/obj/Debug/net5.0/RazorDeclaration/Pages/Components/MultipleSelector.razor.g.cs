@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.Movies
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -97,14 +97,13 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-using HexDataMovies.Client.Pages.Components;
+#line 1 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/MultipleSelector.razor"
+using HexDataMovies.Client.Model;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movies/edit/{MovieId:int}")]
-    public partial class EditMovie : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class MultipleSelector : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,52 +111,50 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+#line 67 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/MultipleSelector.razor"
       
-    [Parameter] public int MovieId {get;set;}
+    private string removeAllText = "<<";
+    private string selectAllText = ">>";
+    [Parameter] public List<MultipleSelectorModel> NotSelected {get;set;} = new List<MultipleSelectorModel>();
+    [Parameter] public List<MultipleSelectorModel> Selected {get;set;} = new List<MultipleSelectorModel>();
+
     
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                    
-    private Movie Movie;
+#line 73 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/MultipleSelector.razor"
+                                                                            
+    private void Seleccionar(MultipleSelectorModel item)
+    {
+        NotSelected.Remove(item);
+        Selected.Add(item);
+    }    
+    private void Deseleccionar(MultipleSelectorModel item)
+    {
+        Selected.Remove(item);
+        NotSelected.Add(item);    
+    }
+
     
-    void Edit(){
-        
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                 
-        Console.WriteLine($"Pelicula: {Movie.Title}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+#line 85 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/MultipleSelector.razor"
+                                                                  
+    private void SelectAll()
+    {
+        Selected.AddRange(NotSelected);
+        NotSelected.Clear();
     }
-
-    protected override void OnInitialized(){
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 24 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                                    
-        Movie = new Movie()
-        {
-            Title = "La Princesa Mononoke",
-            EnCartelera = true,
-            Sinopsis = "Sinopsis...",
-            Trailer = "Trailer"
-        };
-    }
+     private void UnSelectAll()
+    {
+        NotSelected.AddRange(Selected);
+        Selected.Clear();
+    }    
 
 #line default
 #line hidden

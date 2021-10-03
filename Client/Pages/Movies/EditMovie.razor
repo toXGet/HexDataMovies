@@ -1,5 +1,33 @@
 @page "/movies/edit/{MovieId:int}"
-<h6>Editar Película</h6>
+@using HexDataMovies.Client.Pages.Components
+@* @inject NavigationManager navigationManager *@
+
+<FormMovie Movie="Movie" OnValidSubmit="Edit"></FormMovie>
+
+@* <h6>Editar Película</h6> *@
 @code{
     [Parameter] public int MovieId {get;set;}
+    @* Movie Movie = new Movie(); *@
+    private Movie Movie;
+    
+    void Edit(){
+        @* Console.WriteLine($"Actualizar nombre película {Movie.Title}");
+        navigationManager.NavigateTo("movie"); *@
+        Console.WriteLine($"Pelicula: {Movie.Title}");
+        Console.WriteLine($"Premier: {Movie.Premier}");
+        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
+        Console.WriteLine($"Poster: {Movie.Poster}");
+        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+    }
+
+    protected override void OnInitialized(){
+        @* Movie = new Movie(){Id = MovieId, Title="Spiderman" }; *@
+        Movie = new Movie()
+        {
+            Title = "La Princesa Mononoke",
+            EnCartelera = true,
+            Sinopsis = "Sinopsis...",
+            Trailer = "Trailer"
+        };
+    }
 }

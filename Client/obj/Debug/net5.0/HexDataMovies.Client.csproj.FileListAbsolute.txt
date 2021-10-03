@@ -672,3 +672,7 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FiltroMovies.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FormActorComponent.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/ImageComponent.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/FormMovie.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/MultipleSelector.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FormMovie.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/MultipleSelector.razor.g.cs

@@ -96,6 +96,13 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/movies/create")]
     public partial class CreateMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,11 +112,42 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 11 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+#line 14 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
       
-    void Create(){
+    private Movie Movie = new Movie();
+    private List<FilmGenre> NotSelectedFilmGenres = new List<FilmGenre>();
+    
+    protected override void OnInitialized()
+    {
+        NotSelectedFilmGenres = new List<FilmGenre>()
+            {
+                new FilmGenre(){Id = 1, Name = "Comedia"},
+                new FilmGenre(){Id = 2, Name = "Ciencia Ficción"},
+                new FilmGenre(){Id = 3, Name = "Documentales"},
+                new FilmGenre(){Id = 4, Name = "Acción"},
+                new FilmGenre(){Id = 5, Name = "Drama"},
+                new FilmGenre(){Id = 6, Name = "Terror"},
+                new FilmGenre(){Id = 7, Name = "Animación"}
+            };
+    }
+    
+    void Create()
+    {
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 34 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+                                                                                               
         Console.WriteLine(navigationManager.Uri);
         navigationManager.NavigateTo("movie");
+        Console.WriteLine($"Película: {Movie.Title}");
+        Console.WriteLine($"Premier: {Movie.Premier}");
+        Console.WriteLine($"Está en Cartelera: {Movie.EnCartelera}");
+        Console.WriteLine($"Poster: {Movie.Poster}");
+        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
     }
 
 #line default

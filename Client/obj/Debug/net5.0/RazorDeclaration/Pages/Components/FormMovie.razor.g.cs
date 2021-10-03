@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.Movies
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -97,14 +97,20 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+#line 1 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
 using HexDataMovies.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movies/edit/{MovieId:int}")]
-    public partial class EditMovie : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+using HexDataMovies.Client.Model;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class FormMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,51 +118,34 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+#line 66 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
       
-    [Parameter] public int MovieId {get;set;}
-    
+    [Parameter] public Movie Movie {get; set;}
 
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                    
-    private Movie Movie;
-    
-    void Edit(){
-        
+    [Parameter] public EventCallback OnValidSubmit {get; set;}
 
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 15 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                 
-        Console.WriteLine($"Pelicula: {Movie.Title}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+    [Parameter] public List<FilmGenre> SelectedFilmGenres {get;set;} = new List<FilmGenre>();
+    [Parameter] public List<FilmGenre> NotSelectedFilmGenres {get;set;} = new List<FilmGenre>(); 
+    
+    private List<MultipleSelectorModel> Selected {get;set;} = new List<MultipleSelectorModel>();
+    private List<MultipleSelectorModel> NotSelected {get;set;} = new List<MultipleSelectorModel>();    
+    
+    private string posterTemporal;
+
+    private void ImageSelected(string imageB64)
+    {
+        Movie.Poster = imageB64;
     }
 
-    protected override void OnInitialized(){
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 24 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                                    
-        Movie = new Movie()
+    protected override void OnInitialized()
+    {
+        Selected = SelectedFilmGenres.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+        NotSelected = NotSelectedFilmGenres.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+        if (!string.IsNullOrWhiteSpace(Movie.Poster))
         {
-            Title = "La Princesa Mononoke",
-            EnCartelera = true,
-            Sinopsis = "Sinopsis...",
-            Trailer = "Trailer"
-        };
+            posterTemporal = Movie.Poster;
+            Movie.Poster = null;
+        }
     }
 
 #line default

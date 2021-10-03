@@ -1,0 +1,96 @@
+@using HexDataMovies.Client.Model
+<style type="text/css">
+    .selector-multiple {
+        display: flex;
+    }    
+
+    .selectable-ul {
+        height: 200px;
+        width: 170px;
+        overflow-y: auto;
+        list-style-type: none;
+        padding: 0%;
+        border-radius: 3px;
+        border: 1px solid #fff;
+    }
+
+    .selectable-ul li {
+        cursor: pointer;
+        border-bottom: 1px #eee solid;
+        padding: 2px 10px;
+        font-size: 14px;
+    }
+
+    .selectable-ul li:hover {
+        background-color: #969992;
+    }
+
+    .selector-multiple-botones {
+        display: flex;
+        border-radius: 10px;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px;
+    }
+
+    .selector-multiple-botones button {
+        margin: 5px;
+    }
+
+    .selector-multiple-botones button:hover {
+        background-color: #969992;
+    }
+</style>
+<div class="form-group">
+    <div class="selector-multiple">
+        @* Cuadro con categorías que se tienen como opción *@
+        <ul class="selectable-ul">
+            @foreach (var item in NotSelected)
+            {
+                <li @onclick="@(()=>Seleccionar(item))">@item.Value</li>
+            }
+        </ul>
+        @* Sección de botones *@
+        <div class="selector-multiple-botones">
+            <button type="button" @onclick="SelectAll">@selectAllText</button>
+            <button type="button" @onclick="UnSelectAll">@removeAllText</button>
+        </div>
+        @* Cuadro con categorías las cuales ya se seleccionaron *@
+        <ul class="selectable-ul">
+            @foreach (var item in Selected)
+            {
+                <li @onclick="@(()=>Deseleccionar(item))">@item.Value</li>
+            }
+        </ul>
+    </div>
+</div>
+@code{
+    private string removeAllText = "<<";
+    private string selectAllText = ">>";
+    [Parameter] public List<MultipleSelectorModel> NotSelected {get;set;} = new List<MultipleSelectorModel>();
+    [Parameter] public List<MultipleSelectorModel> Selected {get;set;} = new List<MultipleSelectorModel>();
+
+    @* Métodos que se activan desde los cuadros que listan las categorías *@
+    private void Seleccionar(MultipleSelectorModel item)
+    {
+        NotSelected.Remove(item);
+        Selected.Add(item);
+    }    
+    private void Deseleccionar(MultipleSelectorModel item)
+    {
+        Selected.Remove(item);
+        NotSelected.Add(item);    
+    }
+
+    @* Funciones que se activan con el evento click en el botón *@
+    private void SelectAll()
+    {
+        Selected.AddRange(NotSelected);
+        NotSelected.Clear();
+    }
+     private void UnSelectAll()
+    {
+        NotSelected.AddRange(Selected);
+        Selected.Clear();
+    }    
+}
