@@ -1,11 +1,34 @@
 using System;
 using HexDataMovies.Shared.Entity;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Globalization;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using System.Text.Json;
+using System.Net.Http;
 
 namespace HexDataMovies.Client.Services
 {
     public class ServiceMovie : IServiceMovie
     {
+        /* Identificar el tipo de request por parte del cliente: POST, GET, DELETE, UPDATE */
+        private readonly HttpClient httpClient;
+
+        /* Constructor de la clase */
+        public ServiceMovie(HttpClient httpClient){
+            this.httpClient = httpClient;
+        }
+
+        public async Task<HttpResponseWraper<object>> Post<T>(string url, T send){
+            var sendJSON = JsonSerializer.Serialize(send);
+            var sendContent = new StringContent(sendJSON, Encoding.UTF8, "application/json");
+            var responseHttp = await httpClient.PostAsync(url, sendContent);
+            return new HttpResponseWraper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+        }
+
+
+
         public List<Movie> GetMovies(){
             return new List<Movie>{
                 new Movie(){Title="El Viaje de Chihiro",Poster="/Images/Chihiro.jpg",Sinopsis="Una joven, Chihiro, queda atrapada en un nuevo y extraño mundo de espíritus. Cuando sus padres sufren una misteriosa transformación, ella debe recurrir al coraje que nunca supo que tenía para liberar a su familia.",Trailer="Animación",Language="Japonés",Country="Japón",Score=8.5F,RunningTime=new TimeSpan(2,5,0),Premier=new DateTime(2003,11,14)},

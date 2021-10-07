@@ -1,5 +1,7 @@
 @page "/filmgenres/create"
 @using HexDataMovies.Client.Pages.Components
+@inject IServiceMovie movie
+@inject NavigationManager navigationManager
 
 <div class="jumbotron">
     <FormFilmGenreComponent OnValidSubmit="Create" FilmGenre="FilmGenre"></FormFilmGenreComponent>
@@ -7,8 +9,16 @@
 
 @code{
     private FilmGenre FilmGenre = new FilmGenre();
-    private void Create()
+    private async void Create()
     {
-        Console.WriteLine($"Nombre de la categoría de películas {FilmGenre.Name}");
+        var httpResponse = await movie.Post("api/filmgenres", FilmGenre);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine(body);
+        }else{
+            navigationManager.NavigateTo("/filmgenres");
+        }
+        Console.WriteLine($"Creando la Categoría de Películas {FilmGenre.Name}");
     }
 }

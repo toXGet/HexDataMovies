@@ -112,17 +112,27 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
+#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
       
     private FilmGenre FilmGenre = new FilmGenre();
-    private void Create()
+    private async void Create()
     {
-        Console.WriteLine($"Nombre de la categoría de películas {FilmGenre.Name}");
+        var httpResponse = await movie.Post("api/filmgenres", FilmGenre);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine(body);
+        }else{
+            navigationManager.NavigateTo("/filmgenres");
+        }
+        Console.WriteLine($"Creando la Categoría de Películas {FilmGenre.Name}");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

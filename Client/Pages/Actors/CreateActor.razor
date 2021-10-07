@@ -1,5 +1,7 @@
 @page "/actors/create"
 @using HexDataMovies.Client.Pages.Components
+@inject IServiceMovie movie
+@inject NavigationManager navigationManager
 
 <div class="jumbotron">
     <FormActorComponent OnValidSubmit="Create" Actor="Actor"></FormActorComponent>

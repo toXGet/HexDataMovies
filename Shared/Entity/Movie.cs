@@ -23,7 +23,11 @@ namespace HexDataMovies.Shared.Entity
         [Required(ErrorMessage = "El campo {0} es requerido")]
         public DateTime? Premier {get;set;}
         [Required(ErrorMessage = "El campo {0} es requerido")]
+        /* Relación de MUCHOS a MUCHOS con FilmGenre, Mediante relación CategoryMovie */
         public List<CategoryMovie> CategoriesMovie {get;set;} = new List<CategoryMovie>();
+        /* Relación de UNO a MUCHOS con Actor, mediante MovieActor */
+        public List<MovieActor> MoviesActor {get;set;}
+        
         public string ShortTitle
         {
             get{

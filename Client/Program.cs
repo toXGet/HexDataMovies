@@ -27,7 +27,7 @@ namespace HexDataMovies.Client
         /* Servicios tienen tres formas de inyección AddTransient, AddScoped y AddSingleton*/
         /* Metodo que permite configurar el sistema de inyección de dependencias */
         private static void ConfigureServices(IServiceCollection services){
-            services.AddSingleton<IServiceMovie,ServiceMovie>();
+            services.AddScoped<IServiceMovie,ServiceMovie>();
             services.AddSingleton<IServiceActor,ServiceActor>();
         }
     }

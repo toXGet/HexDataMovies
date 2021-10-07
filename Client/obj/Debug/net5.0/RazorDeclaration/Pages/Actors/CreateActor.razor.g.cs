@@ -112,7 +112,7 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
+#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
       
     private Actor Actor = new Actor();
     private void Create()
@@ -123,6 +123,8 @@ using HexDataMovies.Client.Pages.Components;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591
