@@ -97,20 +97,13 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
-using HexDataMovies.Client.Pages.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+#line 1 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/SelectorMultipleTypeaHead.razor"
 using HexDataMovies.Client.Model;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class FormMovie : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class SelectorMultipleTypeaHead<T> : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -118,61 +111,38 @@ using HexDataMovies.Client.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
-      
-    [Parameter] public Movie Movie {get; set;}
+#line 20 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/SelectorMultipleTypeaHead.razor"
+       
+    [Parameter] public List<T> ElementosSeleccionados { get; set; } = new List<T>();
+    [Parameter] public Func<string, Task<IEnumerable<T>>> SearchMethod { get; set; }
+    [Parameter] public RenderFragment<T> MyResultTemplate { get; set; }
+    [Parameter] public RenderFragment<T> MyListTemplate { get; set; }
+    T sampleItem = default(T);
+    T itemArrastrado;
 
-    [Parameter] public EventCallback OnValidSubmit {get; set;}
-
-    [Parameter] public List<FilmGenre> SelectedFilmGenres {get;set;} = new List<FilmGenre>();
-    [Parameter] public List<FilmGenre> NotSelectedFilmGenres {get;set;} = new List<FilmGenre>(); 
-    
-    
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 87 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
-                                    
-    [Parameter] public List<Actor> ActoresSeleccionados { get; set; } = new List<Actor>();
-
-    private List<MultipleSelectorModel> Selected {get;set;} = new List<MultipleSelectorModel>();
-    private List<MultipleSelectorModel> NotSelected {get;set;} = new List<MultipleSelectorModel>();    
-    
-    private string posterTemporal;
-
-    private void ImageSelected(string imageB64)
+    private void HandleDragStart(T item)
     {
-        Movie.Poster = imageB64;
+        itemArrastrado = item;
     }
 
-    protected override void OnInitialized()
+    private void HandleDragOver(T item)
     {
-        Selected = SelectedFilmGenres.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
-        NotSelected = NotSelectedFilmGenres.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
-        if (!string.IsNullOrWhiteSpace(Movie.Poster))
+        if (!item.Equals(itemArrastrado))
         {
-            posterTemporal = Movie.Poster;
-            Movie.Poster = null;
+            var indiceElementoArrastrado = ElementosSeleccionados.IndexOf(itemArrastrado);
+            var indiceElemento = ElementosSeleccionados.IndexOf(item);
+            ElementosSeleccionados[indiceElemento] = itemArrastrado;
+            ElementosSeleccionados[indiceElementoArrastrado] = item;
         }
     }
 
-    
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 111 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
-                                    
-    private async Task<IEnumerable<Actor>> BuscarActores(string searchText)
+    private void ElementoSeleccionado(T item)
     {
-        return new List<Actor>(){
-            new Actor(){Id=1, Name="Yaneth Mejía", Photo="https://pbs.twimg.com/profile_images/1079060744891785216/dAsFSbHH_400x400.jpg"},
-            new Actor(){Id=2, Name="Carolina Marquez", Photo="https://archivo.autonoma.edu.co/sites/default/files/styles/medium/public/carolina-marquez-narvaez.jpg?itok=CcL43PAR"},
-            new Actor(){Id=3, Name="Juan Esteban", Photo="https://cdn1.vectorstock.com/i/1000x1000/29/65/cinema-award-best-actor-flat-style-vector-13602965.jpg"}
-        };
+        if (!ElementosSeleccionados.Any(x => x.Equals(item)))
+        {
+            ElementosSeleccionados.Add(item);
+        }
+        sampleItem = default(T);
     }
 
 #line default

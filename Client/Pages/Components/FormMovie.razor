@@ -58,6 +58,19 @@
                     </div>
                 </div>
             </div>
+            @* Selección de Actores - Añadido de semana 6 Parte 1*@
+            <div class="form-group">
+                <label>Actores:</label>
+                <div>
+                    <SelectorMultipleTypeaHead Context="actor" SearchMethod="BuscarActores" ElementosSeleccionados="ActoresSeleccionados">
+                        <MyListTemplate>@actor.Name</MyListTemplate>
+                        <MyResultTemplate>
+                            <img style="width: 30px" src="@actor.Photo" />
+                            @actor.Name
+                        </MyResultTemplate>
+                    </SelectorMultipleTypeaHead>
+                </div>
+            </div>
             <button type="submit" class="btn btn-success">Aceptar</button>
             <button type="submit" class="btn btn-danger">Cancelar</button>
         </div>
@@ -71,6 +84,9 @@
     [Parameter] public List<FilmGenre> SelectedFilmGenres {get;set;} = new List<FilmGenre>();
     [Parameter] public List<FilmGenre> NotSelectedFilmGenres {get;set;} = new List<FilmGenre>(); 
     
+    @* Añadido de semana 6 Parte 1*@
+    [Parameter] public List<Actor> ActoresSeleccionados { get; set; } = new List<Actor>();
+
     private List<MultipleSelectorModel> Selected {get;set;} = new List<MultipleSelectorModel>();
     private List<MultipleSelectorModel> NotSelected {get;set;} = new List<MultipleSelectorModel>();    
     
@@ -90,5 +106,15 @@
             posterTemporal = Movie.Poster;
             Movie.Poster = null;
         }
+    }
+
+    @* Añadido de semana 6 Parte 1*@
+    private async Task<IEnumerable<Actor>> BuscarActores(string searchText)
+    {
+        return new List<Actor>(){
+            new Actor(){Id=1, Name="Yaneth Mejía", Photo="https://pbs.twimg.com/profile_images/1079060744891785216/dAsFSbHH_400x400.jpg"},
+            new Actor(){Id=2, Name="Carolina Marquez", Photo="https://archivo.autonoma.edu.co/sites/default/files/styles/medium/public/carolina-marquez-narvaez.jpg?itok=CcL43PAR"},
+            new Actor(){Id=3, Name="Juan Esteban", Photo="https://cdn1.vectorstock.com/i/1000x1000/29/65/cinema-award-best-actor-flat-style-vector-13602965.jpg"}
+        };
     }
 }
