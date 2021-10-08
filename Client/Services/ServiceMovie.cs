@@ -1,5 +1,5 @@
 using System;
-using HexDataMovies.Shared.Entity;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Globalization;
@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.Json;
 using System.Net.Http;
+using HexDataMovies.Shared.Entity;
 
 namespace HexDataMovies.Client.Services
 {
@@ -20,14 +21,14 @@ namespace HexDataMovies.Client.Services
             this.httpClient = httpClient;
         }
 
+        /* Crear registros de películas en la Web API
+        Tipo de request: POST */
         public async Task<HttpResponseWraper<object>> Post<T>(string url, T send){
             var sendJSON = JsonSerializer.Serialize(send);
             var sendContent = new StringContent(sendJSON, Encoding.UTF8, "application/json");
             var responseHttp = await httpClient.PostAsync(url, sendContent);
             return new HttpResponseWraper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
-
-
 
         public List<Movie> GetMovies(){
             return new List<Movie>{

@@ -115,6 +115,7 @@ using HexDataMovies.Client.Pages.Components;
 #line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
       
     private FilmGenre FilmGenre = new FilmGenre();
+    
     private async void Create()
     {
         var httpResponse = await movie.Post("api/filmgenres", FilmGenre);

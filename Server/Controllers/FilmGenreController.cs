@@ -18,6 +18,7 @@ namespace HexDataMovies.Server.Controllers
     {
         /* Inicializamos el application db context a la cual le creamos recursos mediante add */
         private readonly ApplicationDbContext context;
+        
         /* Para crear el registro en la base de datos, debemos inyectar el DbContext en el controlador */
         public FilmGenreController(ApplicationDbContext context){
             this.context = context;
@@ -26,6 +27,7 @@ namespace HexDataMovies.Server.Controllers
         /* Tipo de Solicitud del cliente: POST 
         crear un recurso*/
         [HttpPost]
+        
         /* La tarea retorna un int correspondiente al Id de la categoría creada */
         public async Task<ActionResult<int>> Post(FilmGenre filmGenre){
             /* Con el método add agregamos el registro en la DB */
