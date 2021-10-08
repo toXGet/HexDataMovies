@@ -11,10 +11,10 @@ namespace HexDataMovies.Server.Controllers
     [ApiController]
     [Route("api/[controller]")]
 
-    public class ActorController: ControllerBase
+    public class ActorsController: ControllerBase
     {
         private readonly ApplicationDbContext context;
-        public ActorController(ApplicationDbContext context){
+        public ActorsController(ApplicationDbContext context){
             this.context = context;
         }
 

@@ -14,13 +14,13 @@ namespace HexDataMovies.Server.Controllers
     /* El [controller] tomará el nombre del controlador, en este caso FilmGenreController */
     [Route("api/[controller]")]
 
-    public class FilmGenreController: ControllerBase
+    public class FilmGenresController: ControllerBase
     {
         /* Inicializamos el application db context a la cual le creamos recursos mediante add */
         private readonly ApplicationDbContext context;
         
         /* Para crear el registro en la base de datos, debemos inyectar el DbContext en el controlador */
-        public FilmGenreController(ApplicationDbContext context){
+        public FilmGenresController(ApplicationDbContext context){
             this.context = context;
         }
 
