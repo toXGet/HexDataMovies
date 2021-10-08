@@ -115,9 +115,26 @@ using HexDataMovies.Client.Pages.Components;
 #line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
       
     private Actor Actor = new Actor();
-    private void Create()
+    async Task Create()
     {
-        Console.WriteLine($"Nombre del Actor {Actor.Name}");
+        Console.WriteLine(Actor.Name);
+        Console.WriteLine(Actor.BirthDate);
+        Console.WriteLine(Actor.KnownCredits);
+        Console.WriteLine(Actor.Nominations);
+        Console.WriteLine(Actor.Biography);
+        Console.WriteLine(Actor.Gender);
+        Console.WriteLine(Actor.DocumentType);
+        Console.WriteLine(Actor.Document);
+        Console.WriteLine(Actor.Photo);
+
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 32 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
+            
     }
 
 #line default

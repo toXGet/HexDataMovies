@@ -104,17 +104,18 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormActorComponent.razor"
+#line 83 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormActorComponent.razor"
        
-    string imageURL;
+    private string imageURL;
     [Parameter] public Actor Actor { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
     protected override void OnInitialized()
     {
-        if (!string.IsNullOrEmpty(Actor.Photo))
+        if (!string.IsNullOrWhiteSpace(Actor.Photo))
         {
             imageURL = Actor.Photo;
+            Console.WriteLine(imageURL);
             Actor.Photo = null;
         }
     }

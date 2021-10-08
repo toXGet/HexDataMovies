@@ -112,7 +112,7 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+#line 16 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
       
     private Movie Movie = new Movie();
     private List<FilmGenre> NotSelectedFilmGenres = new List<FilmGenre>();
@@ -139,7 +139,7 @@ using HexDataMovies.Client.Pages.Components;
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+#line 36 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
                                                                                                
         Console.WriteLine(navigationManager.Uri);
         navigationManager.NavigateTo("movie");
@@ -154,6 +154,8 @@ using HexDataMovies.Client.Pages.Components;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

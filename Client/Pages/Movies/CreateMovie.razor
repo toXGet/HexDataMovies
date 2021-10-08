@@ -1,5 +1,7 @@
 @page "/movies/create"
 @using HexDataMovies.Client.Pages.Components
+@inject IServiceMovie movie
+@inject IErrorMessage showMessage
 @inject NavigationManager navigationManager
 
 <FormMovie Movie="Movie" OnValidSubmit="Create" NotSelectedFilmGenres="NotSelectedFilmGenres"></FormMovie>

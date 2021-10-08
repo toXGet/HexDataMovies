@@ -2,67 +2,95 @@
     <div class="jumbotron">
         <EditForm Model = "Actor" OnValidSubmit="OnValidSubmit">
             <DataAnnotationsValidator></DataAnnotationsValidator>
-            <div class="mb-3">
-                <InputText class="form-control" @bind-Value="@Actor.Name" placeholder="Nombre del Actor"></InputText>
-                <ValidationMessage For = "@(()=>Actor.Name)"></ValidationMessage>
-            </div>
-            <div class="form-group row mb-3">
-                <div class="col-sm-8">
-                    <InputDate class="form-control" @bind-Value="@Actor.BirthDate"></InputDate>
-                    <ValidationMessage For = "@(()=>Actor.BirthDate)"></ValidationMessage>
-                </div>
-                <div class="col-sm-4">
-                    <InputNumber class="form-control" @bind-Value="@Actor.KnownCredits" placeholder="Cantidad de créditos"></InputNumber>
-                    <ValidationMessage For = "@(()=>Actor.KnownCredits)"></ValidationMessage>
-                </div>
-                @* Lo siguiente es lo hecho en clase que difiere mucho de lo que está en el 
-                paso a paso, dejo lo del paso a paso que me parece más bonito*@
-                @* <div class="col-sm-12 col-lg-8">
-                    <InputDate class="form-control" @bind-Value="@Actor.BirthDate"></InputDate>
-                    <ValidationMessage For = "@(()=>Actor.BirthDate)"></ValidationMessage>
-                </div>
-                <div class="col-sm-12 col-lg-2">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="radio" aria-label="Radio Button for following text input">
-                            </div>
-                        </div>
-                        <label for=""></label>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-lg-2">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="radio" aria-label="Radio Button for following text input">
-                            </div>
-                        </div>
-                        <label for=""></label>
-                    </div>
-                </div> *@
-            </div>
 
             <div class="form-group">
-                <ImageComponent Label="photo" ImageSelected="ImageSelected" ImageURL="@imageURL"></ImageComponent>
+                <div class="row">
+                    <div class="col col-sm-12 col-lg-7 mb-3">
+                        <div>
+                            <InputText class="form-control" @bind-Value="@Actor.Name" placeholder="Actor"></InputText>
+                            <ValidationMessage For = "@(()=>Actor.Name)"></ValidationMessage>
+                        </div>
+                    </div>
+                    <div class="col col-sm-12 col-lg-5 mb-3">
+                        <div class="form-group">
+                            <div>
+                                <InputDate class="form-control" @bind-Value="@Actor.BirthDate"></InputDate>
+                                <ValidationMessage For = "@(()=>Actor.BirthDate)"></ValidationMessage>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-12 col-lg-7 mb-3">
+                        <label>Créditos:</label>
+                        <div>
+                            <InputNumber class="form-control" @bind-Value="@Actor.KnownCredits" placeholder="Créditos"></InputNumber>
+                            <ValidationMessage For = "@(()=>Actor.KnownCredits)"></ValidationMessage>
+                        </div>
+                    </div>
+                    <div class="col col-sm-12 col-lg-5 mb-3">
+                        <div class="form-group">
+                            <label>Nominaciones:</label>
+                            <div>
+                                <InputNumber class="form-control" @bind-Value="@Actor.Nominations" placeholder="Nominaciones"></InputNumber>
+                                <ValidationMessage For = "@(()=>Actor.Nominations)"></ValidationMessage>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <InputTextArea class="form-control" @bind-Value="@Actor.Biography" placeholder="Biografía"></InputTextArea>
+                        <ValidationMessage For="@(()=>Actor.Biography)" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-12 col-lg-4 mb-3">
+                        <label>Género:</label>
+                        <InputSelect class="form-control" @bind-Value="@Actor.Gender">
+                            <option>Masculino</option>
+                            <option>Femenino</option>
+                            <option>NonBinary</option>
+                        </InputSelect>
+                        <ValidationMessage For="@(()=>Actor.Gender)" />
+                    </div>
+                    <div class="col col-sm-6 col-lg-3 mb-3">
+                        <label>Tipo de Documento:</label>
+                        <InputSelect class="form-control" @bind-Value="@Actor.DocumentType">
+                            <option>CedulaCiudadania</option>
+                            <option>CedulaExtranjeria</option>
+                            <option>Pasaporte</option>
+                            <option>RegistroCivil</option>
+                        </InputSelect>
+                        <ValidationMessage For="@(()=>Actor.DocumentType)" />
+                    </div>
+                    <div class="col col-sm-6 col-lg-5 mb-3">
+                        <div>
+                            <label>Número de Documento:</label>
+                            <InputText class="form-control" @bind-Value="@Actor.Document" placeholder="Número de Documento"></InputText>
+                            <ValidationMessage For = "@(()=>Actor.Document)"></ValidationMessage>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group"> @* En el paso a paso el botón está afuera del div *@
-                <button class="btn btn-success">Guardar</button>
+            <div class="form-group">
+                <ImageComponent Label="Photo" ImageSelected="ImageSelected" ImageURL="@imageURL" />
             </div>
+            <button class="btn btn-success" type="submit">Guardar Cambios</button>
         </EditForm>
     </div>
 </div>
-
 @code {
-    string imageURL;
+    private string imageURL;
     [Parameter] public Actor Actor { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
     protected override void OnInitialized()
     {
-        if (!string.IsNullOrEmpty(Actor.Photo))
+        if (!string.IsNullOrWhiteSpace(Actor.Photo))
         {
             imageURL = Actor.Photo;
+            Console.WriteLine(imageURL);
             Actor.Photo = null;
         }
     }

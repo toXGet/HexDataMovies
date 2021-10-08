@@ -9,8 +9,26 @@
 
 @code{
     private Actor Actor = new Actor();
-    private void Create()
+    async Task Create()
     {
-        Console.WriteLine($"Nombre del Actor {Actor.Name}");
+        Console.WriteLine(Actor.Name);
+        Console.WriteLine(Actor.BirthDate);
+        Console.WriteLine(Actor.KnownCredits);
+        Console.WriteLine(Actor.Nominations);
+        Console.WriteLine(Actor.Biography);
+        Console.WriteLine(Actor.Gender);
+        Console.WriteLine(Actor.DocumentType);
+        Console.WriteLine(Actor.Document);
+        Console.WriteLine(Actor.Photo);
+
+        @* var httpResponse = await movie.Post("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await mostrarMensajes.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("/actors");
+        } *@
     }
 }
