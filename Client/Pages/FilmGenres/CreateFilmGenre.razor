@@ -2,7 +2,7 @@
 @using HexDataMovies.Client.Pages.Components
 @inject IServiceMovie movie
 @inject NavigationManager navigationManager
-@* @inject IErrorMessage showMessage *@
+@inject IErrorMessage showMessage
 
 <div class="jumbotron">
     <FormFilmGenreComponent OnValidSubmit="Create" FilmGenre="FilmGenre"></FormFilmGenreComponent>
@@ -11,15 +11,15 @@
 @code{
     private FilmGenre FilmGenre = new FilmGenre();
     
-    private async void Create()
+    private async Task Create()
     {
         var httpResponse = await movie.Post("api/filmgenres", FilmGenre);
         if (httpResponse.Error)
         {
-            @* var body = await httpResponse.GetBody();
-            await showMessage.ShowErrorMessage(body); *@
-            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
-            Console.WriteLine(body);
+            var body = await httpResponse.GetBody();
+            await showMessage.ShowErrorMessage(body);
+            @* var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine(body); *@
         }else{
             navigationManager.NavigateTo("/filmgenres");
         }

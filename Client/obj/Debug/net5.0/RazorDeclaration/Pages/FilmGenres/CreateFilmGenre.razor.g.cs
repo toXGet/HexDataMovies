@@ -116,21 +116,21 @@ using HexDataMovies.Client.Pages.Components;
       
     private FilmGenre FilmGenre = new FilmGenre();
     
-    private async void Create()
+    private async Task Create()
     {
         var httpResponse = await movie.Post("api/filmgenres", FilmGenre);
         if (httpResponse.Error)
         {
+            var body = await httpResponse.GetBody();
+            await showMessage.ShowErrorMessage(body);
             
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 20 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
-                                                        
-            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
-            Console.WriteLine(body);
+#line 22 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor"
+                                       
         }else{
             navigationManager.NavigateTo("/filmgenres");
         }
@@ -140,6 +140,7 @@ using HexDataMovies.Client.Pages.Components;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }

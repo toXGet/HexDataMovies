@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using HexDataMovies.Server.Storage;
 
 namespace HexDataMovies.Server
 {
@@ -24,6 +25,9 @@ namespace HexDataMovies.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // services.AddScoped<IFilesStorage,FilesStorage>();
+            services.AddScoped<IFilesStorage,FilesLocalStorage>();
+            services.AddHttpContextAccessor();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

@@ -112,36 +112,36 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
+#line 12 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
       
     private Actor Actor = new Actor();
-    async Task Create()
-    {
-        Console.WriteLine(Actor.Name);
-        Console.WriteLine(Actor.BirthDate);
-        Console.WriteLine(Actor.KnownCredits);
-        Console.WriteLine(Actor.Nominations);
-        Console.WriteLine(Actor.Biography);
-        Console.WriteLine(Actor.Gender);
-        Console.WriteLine(Actor.DocumentType);
-        Console.WriteLine(Actor.Document);
-        Console.WriteLine(Actor.Photo);
-
-        
+    
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
-            
+#line 27 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/CreateActor.razor"
+        
+    private async Task Create()
+    {
+        var httpResponse = await repositorio.Post("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await mostrarMensajes.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("/actors");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage mostrarMensajes { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie repositorio { get; set; }
     }
 }
 #pragma warning restore 1591

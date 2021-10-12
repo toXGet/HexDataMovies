@@ -28,6 +28,7 @@ namespace HexDataMovies.Client
         /* Metodo que permite configurar el sistema de inyección de dependencias */
         private static void ConfigureServices(IServiceCollection services){
             services.AddScoped<IServiceMovie,ServiceMovie>();
+            services.AddScoped<IErrorMessage,ErrorMessage>();
             services.AddSingleton<IServiceActor,ServiceActor>();
         }
     }

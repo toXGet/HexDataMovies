@@ -1,5 +1,8 @@
-using System.Security.AccessControl;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace HexDataMovies.Client.Services
 {
@@ -14,6 +17,12 @@ namespace HexDataMovies.Client.Services
             Error = error;
             Response = response;
             HttpResponseMessage = httpResponseMessage;
+        }
+
+        /* La función que faltaba para que funcionaran los controllers que la llamaban */
+        public async Task<string> GetBody()
+        {
+            return await HttpResponseMessage.Content.ReadAsStringAsync();
         }
     }
 }
