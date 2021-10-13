@@ -121,41 +121,45 @@ using HexDataMovies.Client.Pages.Components;
     {
         NotSelectedFilmGenres = new List<FilmGenre>()
             {
-                new FilmGenre(){Id = 1, Name = "Comedia"},
-                new FilmGenre(){Id = 2, Name = "Ciencia Ficción"},
-                new FilmGenre(){Id = 3, Name = "Documentales"},
-                new FilmGenre(){Id = 4, Name = "Acción"},
+                new FilmGenre(){Id = 1, Name = "Ciencia Ficción"},
+                new FilmGenre(){Id = 2, Name = "Anime"},
+                new FilmGenre(){Id = 3, Name = "Comedia"},
+                new FilmGenre(){Id = 4, Name = "Aventura"},
                 new FilmGenre(){Id = 5, Name = "Drama"},
-                new FilmGenre(){Id = 6, Name = "Terror"},
-                new FilmGenre(){Id = 7, Name = "Animación"}
+                new FilmGenre(){Id = 6, Name = "Acción"},
+                new FilmGenre(){Id = 7, Name = "Animación"},
+                new FilmGenre(){Id = 8, Name = "Documental"},
+                new FilmGenre(){Id = 9, Name = "Terror"},
+                new FilmGenre(){Id = 10, Name = "Fantasía"},
+                new FilmGenre(){Id = 11, Name = "Romance"}
             };
     }
     
-    void Create()
+    async Task Create()
     {
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 36 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
-                                                                                               
-        Console.WriteLine(navigationManager.Uri);
-        navigationManager.NavigateTo("movie");
-        Console.WriteLine($"Película: {Movie.Title}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Está en Cartelera: {Movie.EnCartelera}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+        var httpResponse = await repositorio.Post<Movie,int>("api/movies", Movie);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.GetBody();
+            await showMessage.ShowErrorMessage(body);
+            Console.WriteLine(body);
+        }
+        else
+        {
+            var MovieId = httpResponse.Response;
+            navigationManager.NavigateTo($"/movie/{MovieId}/{Movie.Title.Replace(" ","-")}");
+        } 
     }
+
+
+    
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie repositorio { get; set; }
     }
 }
 #pragma warning restore 1591

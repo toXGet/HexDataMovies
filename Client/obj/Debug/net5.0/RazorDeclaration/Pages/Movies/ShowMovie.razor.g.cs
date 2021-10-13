@@ -96,8 +96,15 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/ShowMovie.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}/{Name}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}/{MovieName}")]
     public partial class ShowMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -106,17 +113,18 @@ using HexDataMovies.Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 5 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/ShowMovie.razor"
+#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/ShowMovie.razor"
       
     [Parameter] public int MovieId {get;set;}
-    [Parameter] public string Name {get;set;}
-    protected override void OnInitialized(){
-        Console.WriteLine($"El id de la película es {MovieId} y el nombre {Name}");
-    }
+    [Parameter] public string MovieName {get;set;}
+    
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie repositorio { get; set; }
     }
 }
 #pragma warning restore 1591

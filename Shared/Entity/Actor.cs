@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.AccessControl;
 
 namespace HexDataMovies.Shared.Entity
 {
@@ -20,6 +22,10 @@ namespace HexDataMovies.Shared.Entity
         public int Nominations {get;set;}
         [Required(ErrorMessage ="El campo {0} es requerido")]
         public string Biography {get;set;}
+
+        /* Campo que no se va a almacenar en ninguna tabla de la BD */
+        [NotMapped]
+        public string Character{get;set;}
 
         /* Relación MUCHOS a MUCHOS con la entidad Movies */
         public List<MovieActor> MoviesActor {get;set;}

@@ -9,6 +9,8 @@ namespace HexDataMovies.Client.Services
     {
         List<Movie> GetMovies();
         /* Primer método a trabajar: CREAR RECURSO */
-        Task<HttpResponseWraper<object>> Post <T>(string url, T send); 
+        Task<HttpResponseWraper<object>> Post <T>(string url, T send);
+        Task<HttpResponseWraper<TResponse>> Post <T,TResponse>(string url, T send);
+        Task<HttpResponseWraper<T>> Get <T>(string url);
     }
 }

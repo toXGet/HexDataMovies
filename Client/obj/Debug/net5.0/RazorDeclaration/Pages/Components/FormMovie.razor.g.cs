@@ -175,6 +175,24 @@ using HexDataMovies.Client.Model;
         };
     }
 
+    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 121 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+                          
+    private async Task OnDataAnnotationsValidated(){
+        Movie.CategoriesMovie = Selected.Select(x => new CategoryMovie{FilmGenreId = int.Parse(x.Key)}).ToList();
+        Movie.MoviesActor = ActoresSeleccionados.Select(x => new MovieActor{ActorId = x.Id, Character = x.Character}).ToList();
+        if (!string.IsNullOrWhiteSpace(Movie.Poster))
+        {
+            posterTemporal = null;
+        }
+        await OnValidSubmit.InvokeAsync(null);
+    }
+
 #line default
 #line hidden
 #nullable disable
