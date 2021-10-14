@@ -67,6 +67,19 @@ namespace HexDataMovies.Server.Controllers
             return actor;
         }
 
+        // Get añadido para el search de actores
+        [HttpGet("search/{text}")]
+        public async Task<ActionResult<List<Actor>>> Get(string text)
+        {
+            /* Filtra los actores por el nombre que ingresa el usuario en el buscador de actores del create movie */
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return new List<Actor>();
+            }
+            text = text.ToLower();
+            return await Context.Actors.Where(x=>x.Name.ToLower().Contains(text)).ToListAsync();
+        }
+
         [HttpPut]
         public async Task<ActionResult> Put(Actor actor){
             var actorDB = await Context.Actors.FirstOrDefaultAsync(x=>x.Id == actor.Id);

@@ -96,6 +96,20 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
+using HexDataMovies.Shared.Configuration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/ShowActors.razor"
+using HexDataMovies.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/actors")]
     public partial class ShowActors : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -104,6 +118,35 @@ using HexDataMovies.Client.Services;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 34 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/ShowActors.razor"
+      
+    public List<Actor> Actors { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+         await Load();
+    }
+    private async Task Load()
+    {
+        var responseHttp = await movie.Get<List<Actor>>("api/actors");
+        Actors = responseHttp.Response;
+    }
+ 
+    private async Task DeleteActor(Actor Actor){
+        var responseHttp = await movie.Delete($"api/actors/{Actor.Id}");
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }else{
+            await Load();
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

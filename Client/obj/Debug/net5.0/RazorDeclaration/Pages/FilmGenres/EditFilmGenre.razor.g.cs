@@ -97,6 +97,13 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
+using HexDataMovies.Shared.Configuration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/EditFilmGenre.razor"
 using HexDataMovies.Client.Pages.Components;
 
@@ -112,25 +119,49 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/EditFilmGenre.razor"
+#line 18 "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/EditFilmGenre.razor"
       
     private FilmGenre FilmGenre;
     [Parameter]public int Id {get;set;}
-    protected override void OnInitialized(){
-        FilmGenre = new FilmGenre(){
-            Id = Id,
-            Name = "Comedia"
-        };
-    }
-    private void Edit()
+    protected async override Task OnInitializedAsync()
     {
-        Console.WriteLine($"Id {FilmGenre.Id}");
-        Console.WriteLine($"Nombre {FilmGenre.Name}");
+        var responseHttp = await movie.Get<FilmGenre>($"api/filmgenres/{Id}");
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("filmgenres");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }
+        }
+        else
+        {
+            FilmGenre = responseHttp.Response;
+        }
+    }
+
+    private async Task Edit()
+    {
+        var responseHttp = await movie.Put("api/filmgenres", FilmGenre);
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("filmgenres");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

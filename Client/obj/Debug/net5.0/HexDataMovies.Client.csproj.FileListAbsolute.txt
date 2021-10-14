@@ -680,3 +680,6 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/SelectorMultipleTypeaHead.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/CustomTypeaHead.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/SelectorMultipleTypeaHead.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/GenericList.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/GenericList.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/bin/Debug/net5.0/mono_crash.21acb2c5e9.0.json

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.Movies
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -103,15 +103,7 @@ using HexDataMovies.Shared.Configuration;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-using HexDataMovies.Client.Pages.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movies/edit/{MovieId:int}")]
-    public partial class EditMovie : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class GenericList<Titem> : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -119,52 +111,13 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+#line 34 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/GenericList.razor"
       
-    [Parameter] public int MovieId {get;set;}
-    
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                    
-    private Movie Movie;
-    
-    void Edit(){
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 15 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                 
-        Console.WriteLine($"Pelicula: {Movie.Title}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
-    }
-
-    protected override void OnInitialized(){
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 24 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                                    
-        Movie = new Movie()
-        {
-            Title = "La Princesa Mononoke",
-            EnCartelera = true,
-            Sinopsis = "Sinopsis...",
-            Trailer = "Trailer"
-        };
-    }
+    [Parameter] public RenderFragment Loading {get;set;}
+    [Parameter] public RenderFragment NoItems {get;set;}
+    [Parameter] public RenderFragment<Titem> ExistsItems {get;set;}
+    [Parameter] public RenderFragment ItemsComplete {get;set;}
+    [Parameter] public List<Titem> ListResults {get;set;}
 
 #line default
 #line hidden

@@ -96,6 +96,13 @@ using HexDataMovies.Client.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
+using HexDataMovies.Shared.Configuration;
+
+#line default
+#line hidden
+#nullable disable
     public partial class SurveyPrompt : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

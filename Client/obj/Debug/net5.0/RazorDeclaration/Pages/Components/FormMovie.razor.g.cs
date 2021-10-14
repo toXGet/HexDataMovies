@@ -97,14 +97,14 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
-using HexDataMovies.Client.Pages.Components;
+#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
+using HexDataMovies.Shared.Configuration;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+#line 1 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
 using HexDataMovies.Client.Model;
 
 #line default
@@ -118,7 +118,7 @@ using HexDataMovies.Client.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 79 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+#line 83 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
       
     [Parameter] public Movie Movie {get; set;}
 
@@ -133,7 +133,7 @@ using HexDataMovies.Client.Model;
 #line hidden
 #nullable disable
 #nullable restore
-#line 87 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+#line 91 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
                                     
     [Parameter] public List<Actor> ActoresSeleccionados { get; set; } = new List<Actor>();
 
@@ -164,15 +164,12 @@ using HexDataMovies.Client.Model;
 #line hidden
 #nullable disable
 #nullable restore
-#line 111 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+#line 115 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
                                     
     private async Task<IEnumerable<Actor>> BuscarActores(string searchText)
     {
-        return new List<Actor>(){
-            new Actor(){Id=1, Name="Yaneth Mejía", Photo="https://pbs.twimg.com/profile_images/1079060744891785216/dAsFSbHH_400x400.jpg"},
-            new Actor(){Id=2, Name="Carolina Marquez", Photo="https://archivo.autonoma.edu.co/sites/default/files/styles/medium/public/carolina-marquez-narvaez.jpg?itok=CcL43PAR"},
-            new Actor(){Id=3, Name="Juan Esteban", Photo="https://cdn1.vectorstock.com/i/1000x1000/29/65/cinema-award-best-actor-flat-style-vector-13602965.jpg"}
-        };
+        var responseHttp = await movie_i.Get<List<Actor>>($"api/actors/search/{searchText}");
+        return responseHttp.Response;
     }
 
     
@@ -181,7 +178,7 @@ using HexDataMovies.Client.Model;
 #line hidden
 #nullable disable
 #nullable restore
-#line 121 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
+#line 122 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/FormMovie.razor"
                           
     private async Task OnDataAnnotationsValidated(){
         Movie.CategoriesMovie = Selected.Select(x => new CategoryMovie{FilmGenreId = int.Parse(x.Key)}).ToList();
@@ -196,6 +193,7 @@ using HexDataMovies.Client.Model;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie_i { get; set; }
     }
 }
 #pragma warning restore 1591

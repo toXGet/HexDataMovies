@@ -97,6 +97,13 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
+using HexDataMovies.Shared.Configuration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/MovieHome.razor"
 using HexDataMovies.Client.Pages.Components;
 

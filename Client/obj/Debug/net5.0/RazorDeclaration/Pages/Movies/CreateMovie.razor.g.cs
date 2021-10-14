@@ -97,6 +97,13 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
+using HexDataMovies.Shared.Configuration;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
 using HexDataMovies.Client.Pages.Components;
 
@@ -112,27 +119,24 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+#line 23 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
       
     private Movie Movie = new Movie();
     private List<FilmGenre> NotSelectedFilmGenres = new List<FilmGenre>();
     
-    protected override void OnInitialized()
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 26 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/CreateMovie.razor"
+                                                                             
+    private bool ShowMoviesForm {get;set;} = false;
+    protected async override Task OnInitializedAsync()
     {
-        NotSelectedFilmGenres = new List<FilmGenre>()
-            {
-                new FilmGenre(){Id = 1, Name = "Ciencia Ficción"},
-                new FilmGenre(){Id = 2, Name = "Anime"},
-                new FilmGenre(){Id = 3, Name = "Comedia"},
-                new FilmGenre(){Id = 4, Name = "Aventura"},
-                new FilmGenre(){Id = 5, Name = "Drama"},
-                new FilmGenre(){Id = 6, Name = "Acción"},
-                new FilmGenre(){Id = 7, Name = "Animación"},
-                new FilmGenre(){Id = 8, Name = "Documental"},
-                new FilmGenre(){Id = 9, Name = "Terror"},
-                new FilmGenre(){Id = 10, Name = "Fantasía"},
-                new FilmGenre(){Id = 11, Name = "Romance"}
-            };
+        var responseHttp = await repositorio.Get<List<FilmGenre>>("api/filmgenres");
+        NotSelectedFilmGenres = responseHttp.Response;
+        ShowMoviesForm = true;
     }
     
     async Task Create()

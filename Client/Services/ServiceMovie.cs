@@ -69,7 +69,7 @@ namespace HexDataMovies.Client.Services
                 return new HttpResponseWraper<T>(default, true, responseHTTP);
             }
         }
-
+        /* MÉTODO MODIFICAR */
         public async Task<HttpResponseWraper<object>> Put<T>(string url, T enviar)
         {
             var enviarJSON = JsonSerializer.Serialize(enviar);
@@ -78,7 +78,7 @@ namespace HexDataMovies.Client.Services
             return new HttpResponseWraper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
-        /* Borrar */
+        /* MÉTODO ELIMINAR */
         public async Task<HttpResponseWraper<object>> Delete(string url)
         {
             var responseHTTP = await httpClient.DeleteAsync(url);

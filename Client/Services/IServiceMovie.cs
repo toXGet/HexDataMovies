@@ -11,6 +11,8 @@ namespace HexDataMovies.Client.Services
         /* Primer método a trabajar: CREAR RECURSO */
         Task<HttpResponseWraper<object>> Post <T>(string url, T send);
         Task<HttpResponseWraper<TResponse>> Post <T,TResponse>(string url, T send);
+        Task<HttpResponseWraper<object>> Put<T>(string url, T send);
         Task<HttpResponseWraper<T>> Get <T>(string url);
+        Task<HttpResponseWraper<object>> Delete(string url);
     }
 }

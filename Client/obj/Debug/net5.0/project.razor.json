@@ -8,157 +8,35 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1893739658,
+        "HashCode": -1707297991,
         "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.Movies.ShowMovie",
+        "Name": "HexDataMovies.Client.App",
         "AssemblyName": "HexDataMovies.Client",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ShowMovie"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "MovieId",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "MovieId"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "MovieName",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "MovieName"
-            }
+            "TagName": "App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.ShowMovie"
+          "Common.TypeName": "HexDataMovies.Client.App"
         }
       },
       {
-        "HashCode": 151610038,
+        "HashCode": 335368500,
         "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.Movies.ShowMovie",
+        "Name": "HexDataMovies.Client.App",
         "AssemblyName": "HexDataMovies.Client",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "HexDataMovies.Client.Pages.Movies.ShowMovie"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "MovieId",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "MovieId"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "MovieName",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "MovieName"
-            }
+            "TagName": "HexDataMovies.Client.App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.ShowMovie",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 2047678570,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.Movies.CreateMovie",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CreateMovie"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.CreateMovie"
-        }
-      },
-      {
-        "HashCode": 1822808518,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.Movies.CreateMovie",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "HexDataMovies.Client.Pages.Movies.CreateMovie"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.CreateMovie",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1269719676,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.Movies.EditMovie",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "EditMovie"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "MovieId",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "MovieId"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.EditMovie"
-        }
-      },
-      {
-        "HashCode": 1762239370,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.Movies.EditMovie",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "HexDataMovies.Client.Pages.Movies.EditMovie"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "MovieId",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "MovieId"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.EditMovie",
+          "Common.TypeName": "HexDataMovies.Client.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -1206,6 +1084,351 @@
         }
       },
       {
+        "HashCode": 2110764799,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GenericList"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Titem",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter Titem for the HexDataMovies.Client.Pages.Components.GenericList<Titem> component.",
+            "Metadata": {
+              "Common.PropertyName": "Titem",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Loading",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "Loading",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "NoItems",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "NoItems",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ExistsItems",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment<Titem>",
+            "Metadata": {
+              "Common.PropertyName": "ExistsItems",
+              "Components.ChildContent": "True",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ItemsComplete",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "ItemsComplete",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ListResults",
+            "TypeName": "System.Collections.Generic.List<Titem>",
+            "Metadata": {
+              "Common.PropertyName": "ListResults",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "Documentation": "Specifies the parameter name for all child content expressions.",
+            "Metadata": {
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>",
+          "Components.GenericTyped": "True"
+        }
+      },
+      {
+        "HashCode": -1610065322,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HexDataMovies.Client.Pages.Components.GenericList"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Titem",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter Titem for the HexDataMovies.Client.Pages.Components.GenericList<Titem> component.",
+            "Metadata": {
+              "Common.PropertyName": "Titem",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Loading",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "Loading",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "NoItems",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "NoItems",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ExistsItems",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment<Titem>",
+            "Metadata": {
+              "Common.PropertyName": "ExistsItems",
+              "Components.ChildContent": "True",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ItemsComplete",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "ItemsComplete",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ListResults",
+            "TypeName": "System.Collections.Generic.List<Titem>",
+            "Metadata": {
+              "Common.PropertyName": "ListResults",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "Documentation": "Specifies the parameter name for all child content expressions.",
+            "Metadata": {
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>",
+          "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -555196287,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.Loading",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Loading",
+            "ParentTag": "GenericList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.Loading",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": -66925007,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.Loading",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Loading",
+            "ParentTag": "HexDataMovies.Client.Pages.Components.GenericList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.Loading",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1585886471,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.NoItems",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NoItems",
+            "ParentTag": "GenericList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.NoItems",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": 1134961855,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.NoItems",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NoItems",
+            "ParentTag": "HexDataMovies.Client.Pages.Components.GenericList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.NoItems",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1874708261,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ExistsItems",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ExistsItems",
+            "ParentTag": "GenericList"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.ChildContent",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "Documentation": "Specifies the parameter name for the 'ExistsItems' child content expression.",
+            "Metadata": {
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ExistsItems",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": 1593157619,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ExistsItems",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ExistsItems",
+            "ParentTag": "HexDataMovies.Client.Pages.Components.GenericList"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.ChildContent",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "Documentation": "Specifies the parameter name for the 'ExistsItems' child content expression.",
+            "Metadata": {
+              "Components.ChildContentParameterName": "True",
+              "Common.PropertyName": "Context"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ExistsItems",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 811074611,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ItemsComplete",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ItemsComplete",
+            "ParentTag": "GenericList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ItemsComplete",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": 2128349428,
+        "Kind": "Components.ChildContent",
+        "Name": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ItemsComplete",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ItemsComplete",
+            "ParentTag": "HexDataMovies.Client.Pages.Components.GenericList"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Components.GenericList<Titem>.ItemsComplete",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 2000933837,
         "Kind": "Components.Component",
         "Name": "HexDataMovies.Client.Pages.Components.ImageComponent",
@@ -1833,6 +2056,39 @@
         }
       },
       {
+        "HashCode": 1053315148,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ShowFilmGenre"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
+        }
+      },
+      {
+        "HashCode": 680314975,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 372721267,
         "Kind": "Components.Component",
         "Name": "HexDataMovies.Client.Pages.FilmGenres.EditFilmGenre",
@@ -1882,39 +2138,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.EditFilmGenre",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1053315148,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ShowFilmGenre"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
-        }
-      },
-      {
-        "HashCode": 680314975,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -2018,35 +2241,157 @@
         }
       },
       {
-        "HashCode": -1707297991,
+        "HashCode": 2047678570,
         "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.App",
+        "Name": "HexDataMovies.Client.Pages.Movies.CreateMovie",
         "AssemblyName": "HexDataMovies.Client",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "CreateMovie"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.App"
+          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.CreateMovie"
         }
       },
       {
-        "HashCode": 335368500,
+        "HashCode": 1822808518,
         "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.App",
+        "Name": "HexDataMovies.Client.Pages.Movies.CreateMovie",
         "AssemblyName": "HexDataMovies.Client",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "HexDataMovies.Client.App"
+            "TagName": "HexDataMovies.Client.Pages.Movies.CreateMovie"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.App",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.CreateMovie",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1269719676,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.Movies.EditMovie",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EditMovie"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "MovieId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "MovieId"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.EditMovie"
+        }
+      },
+      {
+        "HashCode": 1762239370,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.Movies.EditMovie",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HexDataMovies.Client.Pages.Movies.EditMovie"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "MovieId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "MovieId"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.EditMovie",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1893739658,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.Movies.ShowMovie",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ShowMovie"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "MovieId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "MovieId"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "MovieName",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "MovieName"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.ShowMovie"
+        }
+      },
+      {
+        "HashCode": 151610038,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.Movies.ShowMovie",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HexDataMovies.Client.Pages.Movies.ShowMovie"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "MovieId",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "MovieId"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "MovieName",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "MovieName"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.Movies.ShowMovie",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15148,6 +15493,11 @@
     {
       "FilePath": "/home/saint/Documentos/HexDataMovies/Client/Pages/FilmGenres/CreateFilmGenre.razor",
       "TargetPath": "Pages\\FilmGenres\\CreateFilmGenre.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/GenericList.razor",
+      "TargetPath": "Pages\\Components\\GenericList.razor",
       "FileKind": "component"
     },
     {

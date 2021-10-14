@@ -4,7 +4,14 @@
 @inject IErrorMessage showMessage
 @inject NavigationManager navigationManager
 
-<FormMovie Movie="Movie" OnValidSubmit="Create" NotSelectedFilmGenres="NotSelectedFilmGenres"></FormMovie>
+@if (ShowMoviesForm)
+{
+    <FormMovie Movie="Movie" OnValidSubmit="Create" NotSelectedFilmGenres="NotSelectedFilmGenres"></FormMovie>
+}
+else
+{
+    <div class="alert alert-info" role="alert">Cargando</div>
+}
 @*<div class="jumbotron">
     <div class="form-group mb-3">
         <button class="btn btn-info" @onclick="Create">Crear Película</button>
@@ -16,23 +23,13 @@
 @code{
     private Movie Movie = new Movie();
     private List<FilmGenre> NotSelectedFilmGenres = new List<FilmGenre>();
-    
-    protected override void OnInitialized()
+    @* No se cargaran las peliculas si no existen categorías en el sistema *@
+    private bool ShowMoviesForm {get;set;} = false;
+    protected async override Task OnInitializedAsync()
     {
-        NotSelectedFilmGenres = new List<FilmGenre>()
-            {
-                new FilmGenre(){Id = 1, Name = "Ciencia Ficción"},
-                new FilmGenre(){Id = 2, Name = "Anime"},
-                new FilmGenre(){Id = 3, Name = "Comedia"},
-                new FilmGenre(){Id = 4, Name = "Aventura"},
-                new FilmGenre(){Id = 5, Name = "Drama"},
-                new FilmGenre(){Id = 6, Name = "Acción"},
-                new FilmGenre(){Id = 7, Name = "Animación"},
-                new FilmGenre(){Id = 8, Name = "Documental"},
-                new FilmGenre(){Id = 9, Name = "Terror"},
-                new FilmGenre(){Id = 10, Name = "Fantasía"},
-                new FilmGenre(){Id = 11, Name = "Romance"}
-            };
+        var responseHttp = await repositorio.Get<List<FilmGenre>>("api/filmgenres");
+        NotSelectedFilmGenres = responseHttp.Response;
+        ShowMoviesForm = true;
     }
     
     async Task Create()

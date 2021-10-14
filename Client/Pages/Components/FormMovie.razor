@@ -1,5 +1,5 @@
-@using HexDataMovies.Client.Pages.Components
 @using HexDataMovies.Client.Model
+@inject IServiceMovie movie_i
 
 <EditForm Model="Movie" OnValidSubmit="OnDataAnnotationsValidated">
     <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -64,6 +64,10 @@
                 <div>
                     <SelectorMultipleTypeaHead Context="actor" SearchMethod="BuscarActores" ElementosSeleccionados="ActoresSeleccionados">
                         <MyListTemplate>@actor.Name</MyListTemplate>
+                        @* <MyListTemplate>
+                                    <img style="width: 30px" src="@actor.Photo" />
+                                    @actor.Name/<input type="text" placeholder="Personaje" @bind="actor.Character" />
+                                </MyListTemplate>*@
                         <MyResultTemplate>
                             <img style="width: 30px" src="@actor.Photo" />
                             @actor.Name
@@ -111,11 +115,8 @@
     @* Añadido de semana 6 Parte 1*@
     private async Task<IEnumerable<Actor>> BuscarActores(string searchText)
     {
-        return new List<Actor>(){
-            new Actor(){Id=1, Name="Yaneth Mejía", Photo="https://pbs.twimg.com/profile_images/1079060744891785216/dAsFSbHH_400x400.jpg"},
-            new Actor(){Id=2, Name="Carolina Marquez", Photo="https://archivo.autonoma.edu.co/sites/default/files/styles/medium/public/carolina-marquez-narvaez.jpg?itok=CcL43PAR"},
-            new Actor(){Id=3, Name="Juan Esteban", Photo="https://cdn1.vectorstock.com/i/1000x1000/29/65/cinema-award-best-actor-flat-style-vector-13602965.jpg"}
-        };
+        var responseHttp = await movie_i.Get<List<Actor>>($"api/actors/search/{searchText}");
+        return responseHttp.Response;
     }
 
     @* Semana 7 parte 2:*@

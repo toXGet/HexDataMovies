@@ -1,22 +1,53 @@
 @page "/filmgenres/edit/{Id:int}"
 @using HexDataMovies.Client.Pages.Components
+@inject IServiceMovie movie
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
 
 <div class="jumbotron">
-    <FormFilmGenreComponent OnValidSubmit="Edit" FilmGenre="FilmGenre"></FormFilmGenreComponent>
+    @if (FilmGenre == null)
+    {
+        <div class="alert alert-info" role="alert">Cargando</div>
+    }
+    else
+    {
+        <FormFilmGenreComponent OnValidSubmit="Edit" FilmGenre="FilmGenre"></FormFilmGenreComponent>
+    }
 </div>
 
 @code{
     private FilmGenre FilmGenre;
     [Parameter]public int Id {get;set;}
-    protected override void OnInitialized(){
-        FilmGenre = new FilmGenre(){
-            Id = Id,
-            Name = "Comedia"
-        };
-    }
-    private void Edit()
+    protected async override Task OnInitializedAsync()
     {
-        Console.WriteLine($"Id {FilmGenre.Id}");
-        Console.WriteLine($"Nombre {FilmGenre.Name}");
+        var responseHttp = await movie.Get<FilmGenre>($"api/filmgenres/{Id}");
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("filmgenres");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }
+        }
+        else
+        {
+            FilmGenre = responseHttp.Response;
+        }
+    }
+
+    private async Task Edit()
+    {
+        var responseHttp = await movie.Put("api/filmgenres", FilmGenre);
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("filmgenres");
+        }
     }
 }
