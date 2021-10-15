@@ -63,11 +63,11 @@
                 <label>Actores:</label>
                 <div>
                     <SelectorMultipleTypeaHead Context="actor" SearchMethod="BuscarActores" ElementosSeleccionados="ActoresSeleccionados">
-                        <MyListTemplate>@actor.Name</MyListTemplate>
-                        @* <MyListTemplate>
-                                    <img style="width: 30px" src="@actor.Photo" />
-                                    @actor.Name/<input type="text" placeholder="Personaje" @bind="actor.Character" />
-                                </MyListTemplate>*@
+                        @* <MyListTemplate>@actor.Name</MyListTemplate> *@
+                        <MyListTemplate>
+                            <img style="width: 30px" src="@actor.Photo" />
+                            @actor.Name/<input type="text" placeholder="Personaje" @bind="actor.Character" />
+                        </MyListTemplate>
                         <MyResultTemplate>
                             <img style="width: 30px" src="@actor.Photo" />
                             @actor.Name

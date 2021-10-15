@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.AccessControl;
+using System.Text;
 
 namespace HexDataMovies.Shared.Entity
 {
@@ -29,7 +29,21 @@ namespace HexDataMovies.Shared.Entity
 
         /* Relación MUCHOS a MUCHOS con la entidad Movies */
         public List<MovieActor> MoviesActor {get;set;}
+        /* Del jueves se añade los siguientes para pruebas */
+        public override bool Equals(object obj)
+        {
+            if (obj is Actor actor2)
+            {
+                return Id == actor2.Id;
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
+    
     public enum DocumentType{
         CedulaCiudadania = 0,
         CedulaExtranjeria = 1,

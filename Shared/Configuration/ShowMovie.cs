@@ -3,9 +3,9 @@ using HexDataMovies.Shared.Entity;
 
 namespace HexDataMovies.Shared.Configuration
 {
-    public class VisualizeMovie
+    public class ShowMovie
     {
-        public VisualizeMovie Movie {get;set;}
+        public Movie Movie {get;set;}
         public List<FilmGenre> FilmGenres {get;set;}
         public List <Actor> Actors {get;set;}
         public int UserVote {get;set;}

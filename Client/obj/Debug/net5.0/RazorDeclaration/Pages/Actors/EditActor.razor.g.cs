@@ -119,26 +119,66 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+#line 22 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
       
     [Parameter] public int ActorId {get;set;}
     Actor Actor = new Actor();
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        Actor = new Actor()
+        var httpResponse = await movie.Get<Actor>($"api/actors/{ActorId}");
+        if (httpResponse.Error)
         {
-            Id = ActorId,
-            Name = "Orson Welles",
-            BirthDate = DateTime.Today
-        };
+            
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 30 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+                                                                       
+            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("actors");
+            }
+            
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 35 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+                                              
+            else
+            {
+                await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+            }
+        }
+        else
+        {
+           Actor = httpResponse.Response;
+           Console.WriteLine(Actor.Photo);
+        }
+        
     }
-    private void Edit(){
-        Console.WriteLine("Editando Actor");
+    private async Task Edit()
+    {
+        var httpResponse = await movie.Put("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("actors");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

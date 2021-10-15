@@ -25,9 +25,10 @@ namespace HexDataMovies.Server.Controllers
 
         /* Para crear el registro en la base de datos, debemos inyectar el DbContext en el controlador. 
         Constructor del Controlador */
-        public ActorsController(ApplicationDbContext context, IFilesStorage filesStorage){
+        public ActorsController(ApplicationDbContext context, IFilesStorage filesStorage, IMapper mapper){
             this.Context = context;
             this.FilesStorage = filesStorage;
+            this.mapper = mapper;
         }
         /* Los únicos métodos que reciben como parametro la entidad son:
             [HttpPost] => POST(context.Add) => Crear registro
@@ -43,7 +44,7 @@ namespace HexDataMovies.Server.Controllers
             if (!string.IsNullOrWhiteSpace(actor.Photo))
             {
                 var photo = Convert.FromBase64String(actor.Photo);
-                actor.Photo = await FilesStorage.SaveFile(photo, ".jpg", "actors");
+                actor.Photo = await FilesStorage.SaveFile(photo, "jpg", "actors");
             }
             Context.Add(actor);
             await Context.SaveChangesAsync();
@@ -67,7 +68,7 @@ namespace HexDataMovies.Server.Controllers
             return actor;
         }
 
-        // Get añadido para el search de actores
+        // Get añadido para el search de actores desde la vista de CreateMovies
         [HttpGet("search/{text}")]
         public async Task<ActionResult<List<Actor>>> Get(string text)
         {

@@ -5975,39 +5975,6 @@
         }
       },
       {
-        "HashCode": 1053315148,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ShowFilmGenre"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
-        }
-      },
-      {
-        "HashCode": 680314975,
-        "Kind": "Components.Component",
-        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
-        "AssemblyName": "HexDataMovies.Client",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 372721267,
         "Kind": "Components.Component",
         "Name": "HexDataMovies.Client.Pages.FilmGenres.EditFilmGenre",
@@ -6057,6 +6024,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.EditFilmGenre",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1053315148,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ShowFilmGenre"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
+        }
+      },
+      {
+        "HashCode": 680314975,
+        "Kind": "Components.Component",
+        "Name": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
+        "AssemblyName": "HexDataMovies.Client",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HexDataMovies.Client.Pages.FilmGenres.ShowFilmGenre",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
