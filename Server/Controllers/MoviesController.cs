@@ -137,6 +137,26 @@ namespace HexDataMovies.Server.Controllers
             return movies;
         }
 
+        [HttpGet("edit/{id}")]
+        public async Task<ActionResult<PutMovie>> PutGet(int id)
+        {
+            var peliculaActionResult = await Get(id);
+            if (peliculaActionResult.Result is NotFoundResult) { return NotFound(); }
+
+            var peliculaVisualizarDTO = peliculaActionResult.Value;
+            var generosSeleccionadosIds = peliculaVisualizarDTO.FilmGenres.Select(x => x.Id).ToList();
+            var generosNoSeleccionados = await context.FilmGenres
+                .Where(x => !generosSeleccionadosIds.Contains(x.Id))
+                .ToListAsync();
+            
+            var model = new PutMovie();
+            model.Movie = peliculaVisualizarDTO.Movie;
+            model.NotSelectedFilmGenres = generosNoSeleccionados;
+            model.SelectedFilmGenres = peliculaVisualizarDTO.FilmGenres;
+            model.Actors = peliculaVisualizarDTO.Actors;
+            return model;
+        }
+
         [HttpPut]
         public async Task<ActionResult> Put(Movie movie)
         {
@@ -151,7 +171,7 @@ namespace HexDataMovies.Server.Controllers
                 var posterM = Convert.FromBase64String(movie.Poster);
                 movieDB.Poster = await FilesStorage.EditFile(posterM,"jpg","movies",movieDB.Poster);
             }
-            await context.Database.ExecuteSqlInterpolatedAsync($"delete from CategoriesMovie WHERE MovieId = {movie.Id}");
+            await context.Database.ExecuteSqlInterpolatedAsync($"delete from CategoriesMovie WHERE MovieId = {movie.Id}; delete FROM MoviesActor WHERE MovieId = {movie.Id}");
             if (movie.MoviesActor != null)
             {
                 for (int i = 0; i < movie.MoviesActor.Count; i++)

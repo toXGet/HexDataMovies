@@ -631,9 +631,7 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/ref/HexDataMovies.Client.dll
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/HexDataMovies.Client.pdb
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/MovieHome.razor.g.cs
-/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/MovieList.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/MovieHome.razor.g.cs
-/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/MovieList.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Actors/CreateActor.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Actors/EditActor.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Actors/ShowActors.razor.g.cs
@@ -648,7 +646,6 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Movies/CreateMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Movies/EditMovie.razor.g.cs
-/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Movies/ShowMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Actors/CreateActor.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Actors/EditActor.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Actors/ShowActors.razor.g.cs
@@ -663,7 +660,6 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/CreateMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/EditMovie.razor.g.cs
-/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/ShowMovie.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/FormFilmGenreComponent.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/FormFilmGenreComponent.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/FiltroMovies.razor.g.cs
@@ -683,3 +679,11 @@
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/GenericList.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/GenericList.razor.g.cs
 /home/saint/Documentos/HexDataMovies/Client/bin/Debug/net5.0/mono_crash.21acb2c5e9.0.json
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/MovieInd.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Components/MovieList.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/Movies/ShowMoviePage.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/RazorDeclaration/Pages/OldMovieList.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/MovieInd.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Components/MovieList.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/Movies/ShowMoviePage.razor.g.cs
+/home/saint/Documentos/HexDataMovies/Client/obj/Debug/net5.0/Razor/Pages/OldMovieList.razor.g.cs

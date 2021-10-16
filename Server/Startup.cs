@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using HexDataMovies.Server.Storage;
+using AutoMapper;
+using Newtonsoft.Json;
 
 namespace HexDataMovies.Server
 {
@@ -28,7 +30,8 @@ namespace HexDataMovies.Server
             // services.AddScoped<IFilesStorage,FilesStorage>();
             services.AddScoped<IFilesStorage,FilesLocalStorage>();
             services.AddHttpContextAccessor();
-            services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddRazorPages();
         }
 

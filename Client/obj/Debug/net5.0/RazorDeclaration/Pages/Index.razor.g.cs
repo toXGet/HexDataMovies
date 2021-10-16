@@ -97,15 +97,15 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
-using HexDataMovies.Shared.Configuration;
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Index.razor"
+using HexDataMovies.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Index.razor"
-using HexDataMovies.Client.Pages.Components;
+#line 3 "/home/saint/Documentos/HexDataMovies/Client/Pages/Index.razor"
+using HexDataMovies.Shared.Configuration;
 
 #line default
 #line hidden
@@ -119,18 +119,23 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Index.razor"
+#line 26 "/home/saint/Documentos/HexDataMovies/Client/Pages/Index.razor"
       
-    private List<Movie> Movies;
-    protected override void OnInitialized()
+    private List<Movie> Estrenos;
+    private List<Movie> EnCartelera;
+    protected async override Task OnInitializedAsync()
     {
-        Movies = movie.GetMovies();
+        var responseHttp = await movie_i.Get<FilterMovie>("api/movies");
+        Estrenos = responseHttp.Response.ProximosEstrenos;
+        EnCartelera = responseHttp.Response.PeliculasEnCartelera;
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie_i { get; set; }
     }
 }
 #pragma warning restore 1591

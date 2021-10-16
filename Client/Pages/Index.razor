@@ -1,14 +1,35 @@
 @page "/"
 @using HexDataMovies.Client.Pages.Components
+@using HexDataMovies.Shared.Configuration
 
-@inject IServiceMovie movie
+@inject IServiceMovie movie_i
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
 
-<CardMovieComponent Movies = "Movies"></CardMovieComponent>
+<h6>Ver Películas</h6>
+<div class="container">
+    <div class="jumbotron">
+        <div>
+            <h6 class="text-muted">En Cartelera</h6>
+            <MovieList Movies="EnCartelera"></MovieList>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div>
+            <h6 class="text-muted">Estrenos</h6>
+            <MovieList Movies="Estrenos"></MovieList>
+        </div>
+    </div>
+</div>
+@* <CardMovieComponent Movies = "Movies"></CardMovieComponent> *@
 
 @code{
-    private List<Movie> Movies;
-    protected override void OnInitialized()
+    private List<Movie> Estrenos;
+    private List<Movie> EnCartelera;
+    protected async override Task OnInitializedAsync()
     {
-        Movies = movie.GetMovies();
+        var responseHttp = await movie_i.Get<FilterMovie>("api/movies");
+        Estrenos = responseHttp.Response.ProximosEstrenos;
+        EnCartelera = responseHttp.Response.PeliculasEnCartelera;
     }
 }

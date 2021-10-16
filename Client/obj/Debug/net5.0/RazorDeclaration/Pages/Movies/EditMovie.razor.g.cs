@@ -97,15 +97,15 @@ using HexDataMovies.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "/home/saint/Documentos/HexDataMovies/Client/_Imports.razor"
-using HexDataMovies.Shared.Configuration;
+#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+using HexDataMovies.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-using HexDataMovies.Client.Pages.Components;
+#line 3 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+using HexDataMovies.Shared.Configuration;
 
 #line default
 #line hidden
@@ -119,7 +119,7 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+#line 23 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
       
     [Parameter] public int MovieId {get;set;}
     
@@ -128,47 +128,56 @@ using HexDataMovies.Client.Pages.Components;
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
+#line 25 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
                                     
-    private Movie Movie;
-    
-    void Edit(){
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 15 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                 
-        Console.WriteLine($"Pelicula: {Movie.Title}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
-    }
-
-    protected override void OnInitialized(){
-        
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 24 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/EditMovie.razor"
-                                                                    
-        Movie = new Movie()
+    Movie Movie;
+    private List<FilmGenre> SelectedFilmGenres = new List<FilmGenre>();
+    private List<FilmGenre> NotSelectedFilmGenres = new List<FilmGenre>();
+    private List<Actor> ActoresSeleccionados { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        var httpResponse = await movie_i.Get<PutMovie>($"api/movies/edit/{MovieId}");
+ 
+        if (httpResponse.Error)
         {
-            Title = "La Princesa Mononoke",
-            EnCartelera = true,
-            Sinopsis = "Sinopsis...",
-            Trailer = "Trailer"
-        };
+            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+            }
+        }
+        else
+        {
+            var model = httpResponse.Response;
+            ActoresSeleccionados = model.Actors;
+            SelectedFilmGenres = model.NotSelectedFilmGenres;
+            NotSelectedFilmGenres = model.SelectedFilmGenres;
+            Movie = model.Movie;
+        }
+    }
+
+    private async Task Edit()
+    {
+        var httpResponse = await movie_i.Put("api/movies", Movie);
+        if (httpResponse.Error)
+        {
+            await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo($"movie/{MovieId}");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie_i { get; set; }
     }
 }
 #pragma warning restore 1591

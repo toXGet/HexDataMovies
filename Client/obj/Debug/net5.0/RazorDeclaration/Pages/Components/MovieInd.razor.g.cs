@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages.Movies
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -103,16 +103,7 @@ using HexDataMovies.Shared.Configuration;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/ShowMovie.razor"
-using HexDataMovies.Client.Pages.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}/{MovieName}")]
-    public partial class ShowMovie : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class MovieInd : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -120,18 +111,21 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "/home/saint/Documentos/HexDataMovies/Client/Pages/Movies/ShowMovie.razor"
-      
-    [Parameter] public int MovieId {get;set;}
-    [Parameter] public string MovieName {get;set;}
-    
+#line 14 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/MovieInd.razor"
+       
+    [Parameter] public Movie Movie { get; set; }
+    [Parameter] public bool MostrarBotones { get; set; } = false;
+    [Parameter] public EventCallback<Movie> DeleteMovie { get; set; }
+    private string urlmovie = string.Empty;
+ 
+    protected override void OnInitialized()
+    {
+        urlmovie = $"movie/{Movie?.Id}/{Movie?.Title?.Replace(" ", "-")}";
+    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie repositorio { get; set; }
     }
 }
 #pragma warning restore 1591

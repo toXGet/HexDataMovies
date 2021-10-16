@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HexDataMovies.Client.Pages
+namespace HexDataMovies.Client.Pages.Components
 {
     #line hidden
     using System;
@@ -103,14 +103,6 @@ using HexDataMovies.Shared.Configuration;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "/home/saint/Documentos/HexDataMovies/Client/Pages/MovieList.razor"
-using HexDataMovies.Client.Pages.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/list")]
     public partial class MovieList : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,17 +111,31 @@ using HexDataMovies.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "/home/saint/Documentos/HexDataMovies/Client/Pages/MovieList.razor"
-      
-    private List<Movie> Movies;
-    protected override void OnInitialized(){
-        Movies = movie.GetMovies();
+#line 12 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/MovieList.razor"
+       
+    [Parameter] public List<Movie>Movies { get; set; }
+ 
+    async Task DeleteMovie(Movie movie)
+    {
+        var confirmar = await js.InvokeAsync<bool>("confirm", $"¿Desea borrar la película '{movie.Title}'?");
+        if (confirmar)
+        {
+            var responseHttp = await movie_i.Delete($"api/movies/{movie.Id}");
+            if (responseHttp.Error)
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }else{
+                Movies.Remove(movie);
+            }
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie_i { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime js { get; set; }
     }
 }
 #pragma warning restore 1591

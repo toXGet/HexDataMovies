@@ -21,14 +21,14 @@ namespace HexDataMovies.Server.Controllers
         private readonly ApplicationDbContext Context;
         private readonly IFilesStorage FilesStorage;
         /* private readonly string carpeta = "actors"; */
-        private readonly IMapper mapper;
+        private readonly IMapper Mapper;
 
         /* Para crear el registro en la base de datos, debemos inyectar el DbContext en el controlador. 
         Constructor del Controlador */
         public ActorsController(ApplicationDbContext context, IFilesStorage filesStorage, IMapper mapper){
             this.Context = context;
             this.FilesStorage = filesStorage;
-            this.mapper = mapper;
+            this.Mapper = mapper;
         }
         /* Los únicos métodos que reciben como parametro la entidad son:
             [HttpPost] => POST(context.Add) => Crear registro
@@ -88,11 +88,11 @@ namespace HexDataMovies.Server.Controllers
             {
                 return NotFound();
             }
-            actorDB =mapper.Map(actor, actorDB);
+            actorDB = Mapper.Map(actor, actorDB);
             if (!string.IsNullOrWhiteSpace(actor.Photo))
             {
                var newPhotoActor = Convert.FromBase64String(actor.Photo);
-               actorDB.Photo = await  FilesStorage.EditFile(newPhotoActor, "jpg","actors", actorDB.Photo);
+               actorDB.Photo = await FilesStorage.EditFile(newPhotoActor, "jpg","actors", actorDB.Photo);
             }
             await Context.SaveChangesAsync();
             return NoContent();

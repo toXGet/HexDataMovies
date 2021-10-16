@@ -195,13 +195,13 @@
       "mscorlib.dll": "sha256-CUpudhojlkcrp2dsiJFF\/H\/WNg+uAhzoGkSWfOta\/U0=",
       "netstandard.dll": "sha256-vJpyW6cE\/+ewo5rVB5JUu9x2f8aLnqoIazac8ef5FzQ=",
       "System.Private.CoreLib.dll": "sha256-CvQTDivHJZAtRXyCbDa5f5+okJt39WRFrZSmXTMSau0=",
-      "HexDataMovies.Shared.dll": "sha256-H58ut1LVHx6o6pS8W96jEL8mvw0okUrZWalAAzK9etU=",
-      "HexDataMovies.Client.dll": "sha256-Wr9XHW+Q6T8b\/5vjM2TKehsABWaKZpYNcsz0F1fzUTc="
+      "HexDataMovies.Shared.dll": "sha256-zdbm4z06p80T9wZC2Z2+2y717Hku2y6wdw4GKKCBRP4=",
+      "HexDataMovies.Client.dll": "sha256-GxnxmvCQhiORaDPWueB4\/MM7o07s5QF0mCmMvkM6Qs0="
     },
     "lazyAssembly": null,
     "pdb": {
-      "HexDataMovies.Shared.pdb": "sha256-3DMrzMKnROtqumCN1cWtEcb9ml5QH+Uc6cBvWG\/lF5k=",
-      "HexDataMovies.Client.pdb": "sha256-jk3jaI90MshVp8PDxC\/KGTvAzNxIOBIZS8JCppydmDo="
+      "HexDataMovies.Shared.pdb": "sha256-AxymAwQUIknvw\/FOy3gFUqBtB+EfNeDb7+NTPKjOAXY=",
+      "HexDataMovies.Client.pdb": "sha256-C8nZt1PWlhYs6S1\/K4fCOlQDKUKK6thLe2DteoJXcMM="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-2OdnPsDgJyoSaSlvebGMRd2MxC+4UIqparqVrQZAFDE=",

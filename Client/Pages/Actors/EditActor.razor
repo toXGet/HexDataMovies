@@ -21,7 +21,8 @@
 
 @code{
     [Parameter] public int ActorId {get;set;}
-    Actor Actor = new Actor();
+    @* Actor Actor = new Actor(); *@
+    Actor Actor;
     protected async override Task OnInitializedAsync()
     {
         var httpResponse = await movie.Get<Actor>($"api/actors/{ActorId}");

@@ -122,7 +122,15 @@ using HexDataMovies.Client.Pages.Components;
 #line 22 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
       
     [Parameter] public int ActorId {get;set;}
-    Actor Actor = new Actor();
+    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 24 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+                                    
+    Actor Actor;
     protected async override Task OnInitializedAsync()
     {
         var httpResponse = await movie.Get<Actor>($"api/actors/{ActorId}");
@@ -134,7 +142,7 @@ using HexDataMovies.Client.Pages.Components;
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+#line 31 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
                                                                        
             if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
@@ -146,7 +154,7 @@ using HexDataMovies.Client.Pages.Components;
 #line hidden
 #nullable disable
 #nullable restore
-#line 35 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
+#line 36 "/home/saint/Documentos/HexDataMovies/Client/Pages/Actors/EditActor.razor"
                                               
             else
             {

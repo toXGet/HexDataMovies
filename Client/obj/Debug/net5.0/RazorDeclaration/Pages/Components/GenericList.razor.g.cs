@@ -111,13 +111,13 @@ using HexDataMovies.Shared.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/GenericList.razor"
+#line 40 "/home/saint/Documentos/HexDataMovies/Client/Pages/Components/GenericList.razor"
       
-    [Parameter] public RenderFragment Loading {get;set;}
-    [Parameter] public RenderFragment NoItems {get;set;}
-    [Parameter] public RenderFragment<Titem> ExistsItems {get;set;}
-    [Parameter] public RenderFragment ItemsComplete {get;set;}
-    [Parameter] public List<Titem> ListResults {get;set;}
+    [Parameter] public RenderFragment Cargando {get;set;}
+    [Parameter] public RenderFragment NoHayRegistros {get;set;}
+    [Parameter] public RenderFragment<Titem> HayRegistros {get;set;}
+    [Parameter] public RenderFragment HayRegistrosCompleto {get;set;}
+    [Parameter] public List<Titem> Listado {get;set;}
 
 #line default
 #line hidden

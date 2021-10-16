@@ -19,7 +19,7 @@ namespace HexDataMovies.Shared.Entity
         public string Language {get;set;}
         public string Country {get;set;}
         public float Score {get;set;}
-        public TimeSpan RunningTime {get;set;}
+        /* public TimeSpan RunningTime {get;set;} */
         [Required(ErrorMessage = "El campo {0} es requerido")]
         public DateTime? Premier {get;set;}
         [Required(ErrorMessage = "El campo {0} es requerido")]
